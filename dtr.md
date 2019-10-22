@@ -65,6 +65,7 @@
 
 **Leiya:**
   - I’ll be available weekdays usually from 8am - 7pm
+  - 10/22 - Job Shadow until 5:30p (with traffic getting back); unavailable until 7 or 8p at the earliest
   - Meeting with mentor 10/24 5pm
   - Weekends I am free whenever, but would prefer to have at least half a day to get some chores done
 
