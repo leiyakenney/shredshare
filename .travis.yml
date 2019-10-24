@@ -1,7 +1,12 @@
 language: ruby
 rvm:
- — 2.4.1
-
-before_install:
-  - gem i rubygems-update -v '<3' && update_rubygems
-  - gem install bundler -v 1.17.3
+  - "2.4.1"
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:create db:migrate --trace
+  - bundle exec rspec test/
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'create database mydb_test'
+bundler_args: --binstubs=./bundler_stubs
