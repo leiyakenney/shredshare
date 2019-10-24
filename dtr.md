@@ -67,7 +67,9 @@
   - I’ll be available weekdays usually from 8am - 7pm
   - 10/22 - Job Shadow until 5:30p (with traffic getting back); unavailable until 7 or 8p at the earliest
   - Meeting with mentor 10/24 5pm
-  - Weekends I am free whenever, but would prefer to have at least half a day to get some chores done
+	- Need to leave by 6:30 latest on Friday 10/25
+  - Saturday 10/26 I have to leave at 5:15 for an appointment
+  - With the exception of Saturday, I'm free all weekend, but would prefer to have half a day for chores etc.
 
 **Smitha:**
   - Very flexible.
