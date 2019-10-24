@@ -41,8 +41,13 @@
         </a>
     </ul>
   </div>
-    <p class="fas fa-pencil-alt"> Testing </p>
 
+  <% if request.env['PATH_INFO'] == "/users/#{current_user.id}" %>
+      <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(current_user) %></p>
+    <% else %>
+    <p class="fas fa-pencil-alt"><%= link_to 'DELETE LINE 40 in <application.html.erb> and replace with PROFILE PIC', edit_user_path(current_user) %></p>
+
+  <% end %>
 </div>
 
 

@@ -208,9 +208,13 @@ a:hover
   display: flex;
   // flex-direction: row;
   justify-content: space-between;
-  padding: 45px;
+  padding: 20px 55px 20px;
 }
 
 .fs-pencil-alt{
   position: relative;
+}
+
+.user-name{
+  color: dodgerblue;
 }
