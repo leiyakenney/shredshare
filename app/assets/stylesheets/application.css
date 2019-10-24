@@ -19,9 +19,81 @@
     border-radius: 50%;
   } */
 
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: url("https://pccats.com/wp-content/uploads/2017/11/A83B6593-600x600.jpg");
+    background-color: dodgerblue;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    color: white;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+  }
+
+  .openbtn:hover {
+    background-color: white;
+  }
+
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  /* -------------------------------------------- */
+
 .navbar-brand{text-align: center;}
 
-.user-name{color: dodgerblue;}
+.user-name{
+  color: dodgerblue;
+}
+
+.current-user-name{
+  color: dodgerblue;
+  text-align: center;
+}
 
 .image-circle-index {
   height: 200px; width: 200px;
@@ -34,7 +106,6 @@
 }
 
 footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; }
-.year{text-align: center;}
-.footer{display: inline-block;}
+
+.footer{text-align: center;}
+.year{display: inline-block;}
