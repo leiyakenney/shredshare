@@ -65,11 +65,11 @@
 
 **Leiya:**
   - I’ll be available weekdays usually from 8am - 7pm
-  - 10/22 - Job Shadow until 5:30p (with traffic getting back); unavailable until 7 or 8p at the earliest
-  - Meeting with mentor 10/24 5pm
-	- Need to leave by 6:30 latest on Friday 10/25
-  - Saturday 10/26 I have to leave at 5:15 for an appointment
-  - With the exception of Saturday, I'm free all weekend, but would prefer to have half a day for chores etc.
+	- With the exception of Saturday evening, I'm free all weekend, but would prefer to have half a day for chores etc.
+  - 10/24 - Meeting with mentor @ 5p
+	- 10/25 - Need to leave by 6:30p latest
+  - 10/26 - Have to leave @ 5:15p for an appointment
+	- 10/29 - Attending event @ 5:30p (leave between 5p & 5:15p)
 
 **Smitha:**
   - Very flexible.
