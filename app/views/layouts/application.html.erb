@@ -18,6 +18,8 @@
           <% end %></h5>
       </div>
 
+<% if request.env['PATH_INFO'] != '/' %>
+
       <nav role="navigation">
     <div class="nav-bar">
     <div id="menuToggle">
@@ -42,17 +44,14 @@
     </ul>
   </div>
 
-  <% if request.env['PATH_INFO'] == "/users/#{current_user.id}" %>
-      <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(current_user) %></p>
-    <% else %>
-    <p class="fas fa-pencil-alt"><%= link_to 'DELETE LINE 40 in <application.html.erb> and replace with PROFILE PIC', edit_user_path(current_user) %></p>
+  <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(current_user) %></p>
 
-  <% end %>
 </div>
 
 
 
 </nav>
+<% end %>
 
   <!-- </nav> -->
 

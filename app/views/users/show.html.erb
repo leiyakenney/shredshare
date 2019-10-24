@@ -2,8 +2,12 @@
 
 </div>
 <div class='image-circle-show'>
+  <% if @user.picture == nil %>
+    <% @user.picture = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw' %>
+  <% else %>
   <img> <%= image_tag(@user.picture_url, width: 200, height: 200)%>
   </img>
+  <% end  %>
 </div>
 
   <br>
