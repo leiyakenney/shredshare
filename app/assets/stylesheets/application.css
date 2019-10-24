@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+/*
+  img{
+    height: 200px; width: 200px;
+    border-radius: 50%;
+  } */
+
+.navbar-brand{text-align: center;}
+
+.user-name{color: dodgerblue;}
+
+.image-circle-index {
+  height: 200px; width: 200px;
+  border-radius: 50%;
+}
+
+.image-circle-show {
+  height: 200px; width: 200px;
+  border-radius: 50%;
+}
+
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle; border: none; }
+th { border-bottom: 1px solid #DDD; }
+.year{text-align: center;}
+.footer{display: inline-block;}

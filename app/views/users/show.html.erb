@@ -1,0 +1,45 @@
+<div class="image-circle-show">
+  <img>
+    <%= image_tag(@user.picture_url, width: 200, height: 200) if @user.picture.present? %>
+  </img>
+</div>
+<br>
+<br>
+<p>
+
+  <h5 class="user-name"><%= @user.user_name %></h5>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+
+<p>
+  <strong>Pass:</strong>
+  <%= @user.pass %>
+</p>
+
+<p>
+  <strong>Sport type:</strong>
+  <%= @user.sport_type %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

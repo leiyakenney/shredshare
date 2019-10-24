@@ -1,0 +1,26 @@
+<h1>Shredders</h1>
+
+<% @users.each do |user| %>
+  <dev class="user">
+    <img><%= image_tag user.picture_url, width: 200 if user.picture.present? %> </img>
+    <ul>
+      <li class='user-name'><%= user.user_name %></li>
+      <li class='first-name'><%= user.first_name %></li>
+      <li class='last-name'><%= user.last_name %></li>
+      <li class='pass'><%= user.pass %></li>
+      <li class='sport-type'><%= user.sport_type %></li>
+      <li class='role'><%= user.role %></li>
+      <li class='bio'><%= user.bio %></li>
+    </ul>
+  </dev>
+<br>
+<br>
+
+  <%= link_to 'Show', user %>
+  |
+  <%= link_to 'Edit', edit_user_path(user) %>
+  |
+  <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  |
+  <%= link_to 'New User', new_user_path %>
+<% end %>
