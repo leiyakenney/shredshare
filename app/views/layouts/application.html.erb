@@ -11,22 +11,64 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<body>
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> -->
+    <div class="container">
+
+      <div id="main">
+        <button class="openbtn" onclick="openNav()">☰</button>
+      </div>
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="/">Shred Share</a>
+        <a href="#">About</a>
+        <a href="/users">Users</a>
+        <a href="#">Profile</a>
+        <a  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        </a>
+      </div>
+      <div>
+        <h5 class='current-user-name'><% if user_signed_in? %>
+          Logged in as <strong><%= current_user.user_name %></strong>
+          <% end %></h5>
+        </div>
+    </div>
+  <!-- </nav> -->
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<!-- ----------------------------------------------------------------------- -->
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
       <a class="navbar-brand" href="/">Shred Share</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </button> -->
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item active"> -->
 <!-- We can repace the below link with a different link as the need arises -->
-              <a class="nav-link" href="/users">Users</a>
+              <!-- <a class="nav-link" href="/users">Users</a>
             </li>
-          </ul>
+          </ul> -->
 
-<p class="navbar-text float-right">
+<!-- <p class="navbar-text float-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.user_name %></strong>.
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -35,10 +77,10 @@
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
-</p>
-        </div>
+</p> -->
+        <!-- </div>
       </div>
-    </nav>
+    </nav> -->
 
   <div class="container">
 
@@ -52,7 +94,7 @@
       <%= yield %>
   </div>
 
-  <footer class="navbar-expand-lg navbar-dark bg-primary">
+  <footer class="navbar-expand-lg">
     <div class="footer">
       <div class="year">
       Shred Share <%= Time.now.year %>
