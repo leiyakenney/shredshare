@@ -8,7 +8,6 @@ describe "as a user" do
     @pass = "Epic"
     @bio = "Just got to send it bro!"
     @sport_type = "ski"
-    @role = "passenger"
     @email = "jerry@email.com"
 
 
