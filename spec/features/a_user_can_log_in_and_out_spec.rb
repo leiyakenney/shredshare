@@ -8,7 +8,6 @@ describe "as a user" do
     @pass = "Epic"
     @bio = "Just got to send it bro!"
     @sport_type = "ski"
-    @role = "passenger"
     @email = "jerry@email.com"
 
 
@@ -17,24 +16,24 @@ describe "as a user" do
     fill_in 'User name', with: @user_name
     fill_in 'First name', with: @first_name
     fill_in 'Last name', with: @last_name
-    fill_in 'Pass', with: @pass
-    fill_in 'Sport type', with: @sport_type
-    fill_in 'Role', with: @role
     fill_in 'Email', with: @email
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     fill_in 'Bio', with: @bio
-    click_button 'Sign up'
+    click_button 'Send It'
   end
 
   it "I can log out and sign back in" do
-    within('.navbar') do
+    within('.nav-bar') do
       click_on 'Logout'
     end
-    expect(current_path).to eq('/users/sign_in')
+    expect(current_path).to eq('/')
+    click_on "Log In"
     fill_in 'Email', with: @email
     fill_in 'Password', with: 'password'
     click_on 'Log in'
-    expect(current_path).to eq(users_path)
+    expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_content(@user_name)
+
   end
 end

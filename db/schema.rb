@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_073035) do
     t.string "user_name"
     t.string "first_name"
     t.string "last_name"
-    t.string "picture", default: "./images/r6TH2RoP.jpg"
+    t.string "picture"
     t.string "pass"
     t.string "bio"
     t.string "sport_type"
