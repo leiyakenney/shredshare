@@ -1,11 +1,3 @@
-# default: &default
-#   adapter: postgresql
-# test:
-#   <<: *default
-#   database: mydb_test
-#   username: travis
-#   encoding: utf8
-
 test:
   adapter: postgresql
   database: shredshare_test
