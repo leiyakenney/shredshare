@@ -31,13 +31,22 @@
 
 
     <ul id="menu">
-      <a href="#"><li><strong><%= link_to "About", "#"%></strong></li></a>
-      <a href="#"><li><strong><%= link_to "My Rides", "#"%></strong></li></a>
+      <a href="#"><li><strong><i class="far fa-snowflake"></i>
+<%= link_to "About", "#"%></strong></li></a>
+
+      <a href="#"><li><strong><i class="fas fa-car-side"></i><%= link_to "My Rides", "#"%></strong></li></a>
+
       <% if user_signed_in? %>
-      <a href="#"><li><strong><%= link_to "Logout", destroy_user_session_path, method: :delete%></strong></li>
+      <li><strong><i class="fas fa-sign-out-alt"></i>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete%></strong></li>
         <% else %>
-          <li><strong><%= link_to "Sign up", new_user_registration_path %></strong></li>
-          <li><strong><%= link_to "Login", new_user_session_path %></strong></li>
+
+          <li><strong><i class="fas fa-user-plus"></i>
+<%= link_to "Sign up", new_user_registration_path %></strong></li>
+          <li><strong><i class="fas fa-sign-in-alt"></i>
+
+<%= link_to "Login", new_user_session_path %></strong></li>
         <% end %>
         </a>
     </ul>
