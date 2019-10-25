@@ -1,0 +1,15 @@
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database shredshare_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+
+language: ruby
+
+rvm:
+  - 2.4.1
+
+script:
+  - bundle exec rails db:reset db:setup db:migrate RAINS_ENV=test
+  - bundle exec rspec
