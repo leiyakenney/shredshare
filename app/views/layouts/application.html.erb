@@ -12,31 +12,55 @@
   </head>
 
 <body>
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> -->
-    <div class="container">
-
-      <div id="main">
-        <button class="openbtn" onclick="openNav()">☰</button>
-      </div>
-      <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="/">Shred Share</a>
-        <a href="#">About</a>
-        <a href="/users">Users</a>
-        <a href="#">Profile</a>
-        <a  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-            <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        </a>
-      </div>
       <div>
         <h5 class='current-user-name'><% if user_signed_in? %>
           Logged in as <strong><%= current_user.user_name %></strong>
           <% end %></h5>
-        </div>
-    </div>
+      </div>
+
+<% if request.env['PATH_INFO'] != '/' %>
+      <nav role="navigation">
+    <div class="nav-bar">
+    <div id="menuToggle">
+
+    <input type="checkbox" />
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+
+    <ul id="menu">
+      <li><strong><i class="far fa-snowflake"></i>
+        <%= link_to "About", "#"%></strong></li>
+
+      <li><strong><i class="fas fa-car-side"></i><%= link_to "My Rides", "#"%></strong></li>
+
+        <% if user_signed_in? %>
+        <li><strong><i class="fas fa-sign-out-alt"></i>
+
+          <%= link_to "Logout", destroy_user_session_path, method: :delete%></strong></li>
+        <% else %>
+
+          <li><strong><i class="fas fa-user-plus"></i>
+            <%= link_to "Sign up", new_user_registration_path %></strong></li>
+          <li><strong><i class="fas fa-sign-in-alt"></i>
+
+            <%= link_to "Login", new_user_session_path %></strong></li>
+        <% end %>
+
+    </ul>
+  </div>
+  <% if request.env['PATH_INFO'] == "/users/#{@user.id}" %>
+    <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(@user)%></p>
+  <% end %>
+</div>
+
+
+
+</nav>
+<% end %>
+
   <!-- </nav> -->
 
 
@@ -53,34 +77,6 @@ function closeNav() {
 </script>
 
 <!-- ----------------------------------------------------------------------- -->
-
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
-      <a class="navbar-brand" href="/">Shred Share</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"> -->
-<!-- We can repace the below link with a different link as the need arises -->
-              <!-- <a class="nav-link" href="/users">Users</a>
-            </li>
-          </ul> -->
-
-<!-- <p class="navbar-text float-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.user_name %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p> -->
-        <!-- </div>
-      </div>
-    </nav> -->
 
   <div class="container">
 
