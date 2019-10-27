@@ -12,4 +12,4 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: 048d5614-a38c-44b0-b1af-b62b27e39fa5
+    secure: <%= ENV['HEROKU_API_TOKEN'] %>
