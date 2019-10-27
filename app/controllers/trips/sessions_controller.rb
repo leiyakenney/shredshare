@@ -1,4 +1,4 @@
-class Ride::SessionsController < ApplicationController
+class Trips::SessionsController < ApplicationController
 
   def new
     @user = current_user
