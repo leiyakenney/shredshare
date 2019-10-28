@@ -3,10 +3,9 @@
 </div>
 <div class='image-circle-show'>
   <% if @user.picture_url == nil %>
-  <img> <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7jFbjBxexVsYsryQaYhSHZ2XSo5Li-pLVAU5nxt2qWqjXkS5d&s', width: 200, height: 200)%>
+    <img> <%= image_tag('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7jFbjBxexVsYsryQaYhSHZ2XSo5Li-pLVAU5nxt2qWqjXkS5d&s', width: 200, height: 200)%>
   <% else %>
-  <img> <%= image_tag(@user.picture_url, width: 200, height: 200)%>
-  </img>
+    <img><%= image_tag(@user.picture_url, width: 200, height: 200)%></img>
   <% end  %>
 </div>
 
@@ -19,20 +18,18 @@
 
 <p>
   <strong>Name:</strong> <br>
-  <%= @user.first_name + " " + @user.last_name %>
+    <%= @user.first_name + " " + @user.last_name %>
 </p>
 
 <p>
-    <strong>Sport type:</strong> <br>
+  <strong>Sport type:</strong> <br>
     <%= @user.sport_type %>
 </p>
 
 <p>
   <strong>Bio:</strong>
-  <%= @user.bio %>
+    <%= @user.bio %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
-</div>
+<%= link_to 'Back', users_path %> | <%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>

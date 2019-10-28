@@ -52,6 +52,7 @@ class UsersController < ApplicationController
   private
 
     def set_user
+      binding.pry
       @user = User.find(params[:id])
     end
 

@@ -1,0 +1,18 @@
+<h1>Add A Vehicle</h1>
+<%= form_for [@user, @vehicle] do |f| %>
+    <div class="forms-field">
+      <%= f.label :awd %>:
+      <%= f.check_box :awd, required: true %><br />
+    </div>
+    <div class="forms-field">
+      <%= f.label :storage_rack %>:
+      <%= f.check_box :storage_rack, required: true %><br />
+    </div>
+    <div class="forms-field">
+      <%= f.label :total_number_seats %>:
+      <%= f.number_field :total_number_seats, min: 1, required: true %><br />
+    </div>
+    <div class="forms-button">
+      <%= f.submit "Add Vehicle" %>
+    </div>
+  <% end %>
