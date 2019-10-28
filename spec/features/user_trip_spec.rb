@@ -32,16 +32,11 @@ RSpec.describe "User Trip Buttons" do
       expect(page).to have_content("Need A Ride")
     end
 
-# On this page, I see a form that i can fill out with the following fields:
-#
-# [ ] Rec Type (ski, board, other, both)
-# [ ] Trip Type ( one way, round trip )
-# [ ] Pass Type ( IKON, Epic, Other )
-# [ ] Desired Dates ( date range: full week, weekends, mon, tue, wed, thur, fri, sat, sun)
     it "As a user, when I am on '/trips_dashboard' and I click on
     (Looking to put junk in your trunk), I am taken to '/trips_filter'.
     On this page, I see a form that i can fill out with the following fields:
     rec type, trip type, pass type, desired dates" do
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
     visit "/trip_dashboard"
 
