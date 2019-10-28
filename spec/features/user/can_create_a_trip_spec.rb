@@ -31,13 +31,14 @@ RSpec.describe "A driver can create a trip" do
 
       visit ('/trip_dashboard')
       click_on "I Need Cheeks In My Seats"
-
+      
       expect(current_path).to eq('/trip_dashboard/drivers/new')
       expect(page).to have_css('.trip_creation_form')
       expect(page).to have_content("Trip Details")
-      expect(page).to have_content("Trip Options")
-      expect(page).to have_content("Date of Trip")
-      expect(page).to have_content("Trip Details")
+      expect(page).to have_content("Seats Available")
+      expect(page).to have_content("Date of Departure")
+      expect(page).to have_content("Destination")
+      expect(page).to have_button("SEND IT")
     end
   end
 end
