@@ -15,8 +15,24 @@
     <p class='make'><h3><%=vehicle.make%></h3></p>
     <p class='model'><h4><%=vehicle.model%></h4></p>
     <p class='vehicle-year'>Year: <%=vehicle.year%></p>
-    <p class='awd'>AWD: <%=vehicle.awd%></p>
-    <p class='storage_rack'>Roof Rack: <%=vehicle.storage_rack%></p>
+    <% if vehicle.awd == true %>
+      <div class="awd">
+        <p>AWD: <i class="far fa-check-square"></i></p>
+      </div>
+    <% else %>
+      <div class="awd">
+        <p>AWD: <i class="far fa-square"></i></p>
+      </div>
+    <% end %>
+    <% if vehicle.storage_rack == true %>
+      <div class="storage-rack">
+        <p>Storage Rack: <i class="far fa-check-square"></i></p>
+      </div>
+    <% else %>
+      <div class="storage-rack">
+        <p>Storage Rack: <i class="far fa-square"></i></p>
+      </div>
+    <% end %>
     <p class='total_seats'>Total Seats: <%=vehicle.total_seats%></p>
   </ul>
   <hr>
