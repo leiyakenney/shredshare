@@ -50,11 +50,12 @@ describe "A user visits show page: " do
     end
   end
 
-  xit "can access list of vehicles, if they have added any" do
+  it "can access list of vehicles, if they have added any" do
     vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
     vehicle_2 = @user.vehicles.create!(make: 'vehicle_2', model: 'model_2', year: '2019', awd: true, storage_rack: true, total_seats: 3)
 
-    within('#menu') do
+    visit user_vehicles_path(@user.id)
+    within('#menuToggle') do
       expect(page).to have_link('My Vehicles')
     end
   end
