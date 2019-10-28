@@ -79,10 +79,14 @@ describe "A user visits show page: " do
     fill_in 'Make', with: 'Lexus'
     fill_in 'Model', with: 'RX 300'
     fill_in 'Year', with: '2019'
-    # check('Awd')
-    # check('Storage rack')
     fill_in 'Total seats', with: 4
 
     click_on "Update Vehicle"
+    expect(current_path).to eq("/users/#{@user.id}/vehicles/#{vehicle.id}")
+
+    expect(page).to have_content('Lexus')
+    expect(page).to have_content('RX 300')
+    expect(page).to have_content('2019')
+    expect(page).to have_content('Total Seats: 4')
   end
 end

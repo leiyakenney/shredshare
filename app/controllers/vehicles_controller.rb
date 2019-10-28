@@ -25,9 +25,20 @@ class VehiclesController < ApplicationController
   def edit
     @vehicle = Vehicle.find(params[:id])
   end
+
+  def update
+    vehicle = Vehicle.find(params[:id])
+    if vehicle.update(vehicle_params)
+      redirect_to user_vehicle_path(user_id: current_user.id, id: vehicle.id), notice: 'Vehicle Updated.'
+    else
+      render :edit, alert: 'Something went wrong. Please try again.'
+    end
+  end
+
 private
 
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year, :awd, :storage_rack, :total_seats, :current_user)
   end
+
 end
