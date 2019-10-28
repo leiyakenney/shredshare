@@ -20,6 +20,7 @@ RSpec.describe "A driver can create a trip" do
       successfully create a new trip:
       - Ride Offer (drop down menu to one-way or round-trip)
       - Seats Available (drop down menu)
+      - option to use previous vehicles (current_user.vehicles) dropdown menu
       - Gear Storage Type (drop down menu)
       - AWD or 4x4 (checkbox)
       - Date
@@ -27,7 +28,16 @@ RSpec.describe "A driver can create a trip" do
       - Send It! (button)
        The newly created trip should appear on the rides index page." do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
-      
+
+      visit ('/trip_dashboard')
+      click_on "I Need Cheeks In My Seats"
+
+      expect(current_path).to eq('/trip_dashboard/drivers/new')
+      expect(page).to have_css('.trip_creation_form')
+      expect(page).to have_content("Trip Details")
+      expect(page).to have_content("Trip Options")
+      expect(page).to have_content("Date of Trip")
+      expect(page).to have_content("Trip Details")
     end
   end
 end
