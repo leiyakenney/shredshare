@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-  resources :users
+  resources :users do
+    resources :vehicles, only:[:new, :create, :index]
+  end
 
   root to: 'welcome#index'
 end

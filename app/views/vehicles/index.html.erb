@@ -1,0 +1,13 @@
+<h1>My Vehicles</h1>
+<h3><%= "Total Vehicles: #{@vehicles.count}" %></h3>
+
+<% @vehicles.each do |vehicle|%>
+  <ul class='vehicle'>
+      <li class='make'><%=vehicle.make%></li>
+      <li class='modle'><%=vehicle.modle%></li>
+      <li class='year'><%=vehicle.year%></li>
+      <li class='awd'><%=vehicle.awd%></li>
+      <li class='storage_rack'><%=vehicle.storage_rack%></li>
+      <li class='total_seats'><%=vehicle.total_seats%></li>
+  </ul>
+<% end %>
