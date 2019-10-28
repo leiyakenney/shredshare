@@ -11,3 +11,4 @@
 <p class='awd'>AWD: <%=@vehicle.awd%></p>
 <p class='storage_rack'>Roof Rack: <%=@vehicle.storage_rack%></p>
 <p class='total_seats'>Total Seats: <%=@vehicle.total_seats%></p>
+<%= link_to 'Edit', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}/edit" %>

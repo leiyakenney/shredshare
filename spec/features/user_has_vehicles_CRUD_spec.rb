@@ -67,4 +67,22 @@ describe "A user visits show page: " do
     expect(page).to have_content(vehicle.make)
     expect(page).to_not have_content(vehicle_2.make)
   end
+
+  it "user can edit a vehicle's information" do
+    vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+    visit "/users/#{@user.id}/vehicles/#{vehicle.id}"
+
+    expect(page).to have_link('Edit')
+    click_on 'Edit'
+    expect(current_path).to eq("/users/#{@user.id}/vehicles/#{vehicle.id}/edit")
+
+    fill_in 'Make', with: 'Lexus'
+    fill_in 'Model', with: 'RX 300'
+    fill_in 'Year', with: '2019'
+    # check('Awd')
+    # check('Storage rack')
+    fill_in 'Total seats', with: 4
+
+    click_on "Update Vehicle"
+  end
 end
