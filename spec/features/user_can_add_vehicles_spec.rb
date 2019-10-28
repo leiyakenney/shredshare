@@ -2,13 +2,11 @@ require 'rails_helper'
 
 describe "A user visits '/profile' " do
   before :each do
-
     @user = User.create!(user_name: "jerry_of_the_day", first_name: "Jerry", last_name: "Jones", pass:"Epic", bio: "Hi, my name is Jerry.", email: "jerry@email.com", password: 'password')
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit user_path(@user.id)
-
   end
 
   it "they see link to add a vehicle" do
@@ -39,10 +37,30 @@ describe "A user visits '/profile' " do
     within(first('.vehicle')) do
       expect(page).to have_css('.make')
       expect(page).to have_css('.model')
-      expect(page).to have_css('.year')
+      expect(page).to have_css('.vehicle-year')
       expect(page).to have_css('.awd')
       expect(page).to have_css('.storage_rack')
       expect(page).to have_css('.total_seats')
     end
+  end
+
+  xit "can access list of vehicles, if they have added any" do
+
+  end
+
+  it "user can go to vehicle show page" do
+    vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+    vehicle_2 = @user.vehicles.create!(make: 'vehicle_2', model: 'model_2', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+    visit user_vehicles_path(@user.id)
+    # save_and_open_page
+    within(first('.vehicle')) do
+      find("img[src*='https://www.chalets-meribel.co.uk/images/graphics/car-journey.png']").click
+    end
+    save_and_open_page
+    # binding.pry
+    # expect(current_path).to eq("/users/#{@user.id}/vehicles/#{vehicle.id}")
+    # expect(current_path).to eq(user_vehicle_path(user_id: @user.id, id: vehicle.id))
+    expect(page).to have_content(vehicle.make)
+    expect(page).to_not have_content(vehicle_2.make)
   end
 end
