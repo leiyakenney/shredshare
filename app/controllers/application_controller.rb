@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_trip
-    @trip || Trip.new(session[:trip]) ||= Hash.new(0)
+    @trip || Trip.new(session[:trip])
   end
 
 protected
