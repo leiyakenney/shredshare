@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "A user visits '/profile' " do
+describe "A user visits show page: " do
   before :each do
     @user = User.create!(user_name: "jerry_of_the_day", first_name: "Jerry", last_name: "Jones", pass:"Epic", bio: "Hi, my name is Jerry.", email: "jerry@email.com", password: 'password')
 
@@ -51,15 +51,8 @@ describe "A user visits '/profile' " do
   it "user can go to vehicle show page" do
     vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
     vehicle_2 = @user.vehicles.create!(make: 'vehicle_2', model: 'model_2', year: '2019', awd: true, storage_rack: true, total_seats: 3)
-    visit user_vehicles_path(@user.id)
-    # save_and_open_page
-    within(first('.vehicle')) do
-      find("img[src*='https://www.chalets-meribel.co.uk/images/graphics/car-journey.png']").click
-    end
-    save_and_open_page
-    # binding.pry
-    # expect(current_path).to eq("/users/#{@user.id}/vehicles/#{vehicle.id}")
-    # expect(current_path).to eq(user_vehicle_path(user_id: @user.id, id: vehicle.id))
+    visit "/users/#{@user.id}/vehicles/#{vehicle.id}"
+    
     expect(page).to have_content(vehicle.make)
     expect(page).to_not have_content(vehicle_2.make)
   end

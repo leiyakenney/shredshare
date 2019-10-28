@@ -1,0 +1,13 @@
+<div class='car-icon'>
+  <% if @vehicle.image == nil %>
+    <%= image_tag("https://www.chalets-meribel.co.uk/images/graphics/car-journey.png", width: 50, height: 50) %>
+  <% else %>
+    <img> <%= image_tag(@vehicle.image, width: 50, height: 50)%>
+    </img>
+  <% end %>
+</div>
+
+<h1><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model}" %> </h1>
+<p class='awd'>AWD: <%=@vehicle.awd%></p>
+<p class='storage_rack'>Roof Rack: <%=@vehicle.storage_rack%></p>
+<p class='total_seats'>Total Seats: <%=@vehicle.total_seats%></p>

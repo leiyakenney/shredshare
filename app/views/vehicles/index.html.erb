@@ -5,7 +5,7 @@
   <ul class='vehicle'>
     <div class='car-icon'>
       <% if vehicle.image == nil %>
-        <%= link_to image_tag("https://www.chalets-meribel.co.uk/images/graphics/car-journey.png", width: 50, height: 50), user_vehicle_path(current_user.id, vehicle) %>
+        <%= link_to image_tag("https://www.chalets-meribel.co.uk/images/graphics/car-journey.png", width: 50, height: 50), user_vehicle_path(current_user.id, vehicle.id) %>
       <% else %>
         <img> <%= image_tag(vehicle.image, width: 50, height: 50)%>
         </img>
