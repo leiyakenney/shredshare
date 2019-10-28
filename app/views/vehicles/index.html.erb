@@ -3,11 +3,11 @@
 
 <% @vehicles.each do |vehicle|%>
   <ul class='vehicle'>
-      <li class='make'><%=vehicle.make%></li>
-      <li class='modle'><%=vehicle.modle%></li>
-      <li class='year'><%=vehicle.year%></li>
-      <li class='awd'><%=vehicle.awd%></li>
-      <li class='storage_rack'><%=vehicle.storage_rack%></li>
-      <li class='total_seats'><%=vehicle.total_seats%></li>
+      <li class='make'>Make:<%=vehicle.make%></li>
+      <li class='model'>Model:<%=vehicle.model%></li>
+      <li class='year'>Year:<%=vehicle.year%></li>
+      <li class='awd'>AWD:<%=vehicle.awd%></li>
+      <li class='storage_rack'>Roof Rack:<%=vehicle.storage_rack%></li>
+      <li class='total_seats'>Total Seats:<%=vehicle.total_seats%></li>
   </ul>
 <% end %>

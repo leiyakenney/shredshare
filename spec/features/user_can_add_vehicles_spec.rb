@@ -34,7 +34,7 @@ describe "A user visits '/profile' " do
 
     expect(current_path).to eq(user_vehicles_path(@user.id))
 
-    expect(page).to have_content('Total Vehicles 1')
+    expect(page).to have_content('Total Vehicles: 1')
 
     within(first('.vehicle')) do
       expect(page).to have_css('.make')

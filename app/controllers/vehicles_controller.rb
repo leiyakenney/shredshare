@@ -9,10 +9,13 @@ class VehiclesController < ApplicationController
   end
 
   def create
-#current_user is not being assigned to vehicle.
-    # binding.pry
-    @vehicle = Vehicle.create(vehicle_params)
-    redirect_to user_vehicles_path(current_user.id)
+    @user = current_user
+    @vehicle = @user.vehicles.create(vehicle_params)
+    if @vehicle.save
+      redirect_to user_vehicles_path(current_user.id), success: 'Vehicle Added.'
+    else
+      render new
+    end
 #question here is where do we want to redirect to. Back to user profile, to the vehicle index page, show page? Also, do we want to allow a user to include a photo of their vehicle as well?
   end
 
