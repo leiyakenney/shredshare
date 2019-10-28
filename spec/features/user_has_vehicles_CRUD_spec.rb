@@ -44,15 +44,26 @@ describe "A user visits show page: " do
     end
   end
 
-  xit "can access list of vehicles, if they have added any" do
+  it "user should not see 'My Vehicles' if user does not have any vehicles." do
+    within('#menuToggle') do
+      expect(page).to_not have_link('My Vehicles')
+    end
+  end
 
+  xit "can access list of vehicles, if they have added any" do
+    vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+    vehicle_2 = @user.vehicles.create!(make: 'vehicle_2', model: 'model_2', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+
+    within('#menu') do
+      expect(page).to have_link('My Vehicles')
+    end
   end
 
   it "user can go to vehicle show page" do
     vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
     vehicle_2 = @user.vehicles.create!(make: 'vehicle_2', model: 'model_2', year: '2019', awd: true, storage_rack: true, total_seats: 3)
     visit "/users/#{@user.id}/vehicles/#{vehicle.id}"
-    
+
     expect(page).to have_content(vehicle.make)
     expect(page).to_not have_content(vehicle_2.make)
   end

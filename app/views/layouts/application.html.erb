@@ -19,7 +19,7 @@
       </div>
 
 <% if request.env['PATH_INFO'] != '/' %>
-      <nav role="navigation">
+  <nav role="navigation">
     <div class="nav-bar">
     <div id="menuToggle">
 
@@ -39,6 +39,12 @@
         <% if user_signed_in? %>
           <li><strong><i class="fas fa-user"></i>
           <%= link_to "Profile", user_path(current_user.id) %></strong></li>
+
+          <% if current_user.vehicles.count >= 1 %>
+            <li><strong><i class="fas fa-car"></i>
+            <%= link_to "My Vehicles", user_vehicles_path(current_user.id) %></strong></li>
+          <% end %>
+
           <li><strong><i class="fas fa-sign-out-alt"></i>
           <%= link_to "Logout", destroy_user_session_path, method: :delete%></strong></li>
         <% else %>
