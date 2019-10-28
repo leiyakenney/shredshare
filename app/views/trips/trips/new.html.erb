@@ -1,3 +1,12 @@
 <section class='trip_creation_form'>
-  
+  <h1>Create A New Trip</h1>
+  <%= form_tag(trip_filter_creation_path, method: "get") do %>
+    <p>Trip Details</p><%= select_tag(:recreation_type, options_for_select(recreation_list), {class: "rec-field"}) %>
+    <p>Seats Available</p><%= select_tag(:trip_type, options_for_select(trip_list), {class: "trip-field"}) %>
+    <p>Destination</p><%= select_tag(:pass_type, options_for_select(pass_list), {class: "pass-field"}) %>
+    <p>Date of Departure</p><%= select_tag(:desired_dates, options_for_select(dates_list), {class: "date-field"}) %>
+    <%= submit_tag('SEND IT', class: "button") %>
+  <% end %>
+
+
 </section>
