@@ -1,0 +1,11 @@
+<section class = "trip_filter_form">
+  <h1>Need A Ride</h1>
+    <%= form_tag(trip_filter_creation_path, method: "get") do %>
+      <p>Recreation Type</p><%= select_tag(:recreation_type, options_for_select(recreation_list), {class: "rec-field"}) %>
+      <p>Trip Type</p><%= select_tag(:trip_type, options_for_select(trip_list), {class: "trip-field"}) %>
+      <p>Pass Type</p><%= select_tag(:pass_type, options_for_select(pass_list), {class: "pass-field"}) %>
+      <p>Desired Dates</p><%= select_tag(:desired_dates, options_for_select(dates_list), {class: "date-field"}) %>
+      <%= submit_tag('SEND IT', class: "button") %>
+    <% end %>
+
+</section>
