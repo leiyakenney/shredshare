@@ -6,9 +6,9 @@
 
 require 'rails_helper'
 
-RSpec.describe "User Dashboard" do
+RSpec.describe "User Trip Buttons" do
 
-  describe "Registered User Dashboard" do
+  describe "Registered User Trip Dashboard" do
     before :each do
       current_user = User.create!(user_name: "jerry_of_the_day",
                                   first_name: "Jerry",
@@ -20,10 +20,10 @@ RSpec.describe "User Dashboard" do
                                   email: "jerry@email.com")
     end
 
-    it "As a user, when I visit '/ride_dashboard', I see two buttons.
+    it "As a user, when I visit '/trip_dashboard', I see two buttons.
       Button 1: 'I Need Cheeks In My Seats (Give A Ride)'
       Button 2: 'Looking To Put My Junk In Your Trunk (Need A Ride)'" do
-      visit ('/ride_dashboard')
+      visit ('/trip_dashboard')
 
       expect(page).to have_link("I Need Cheeks In My Seats")
       expect(page).to have_link("Looking To Put My Junk In Your Trunk")
