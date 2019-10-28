@@ -4,12 +4,16 @@
 <% @vehicles.each do |vehicle|%>
   <ul class='vehicle'>
     <div class='image-circle-show'>
-      <img> <%= image_tag(vehicle.picture_url, width: 200, height: 200)%>
-      </img>
+      <% if vehicle.image == nil %>
+        <%= image_tag("https://www.chalets-meribel.co.uk/images/graphics/car-journey.png", width: 200, height: 200) %>
+      <% else %>
+        <img> <%= image_tag(vehicle.image, width: 200, height: 200)%>
+        </img>
+      <% end %>
     </div>
 
-    <li class='make'>Make:<%=vehicle.make%></li>
-    <li class='model'>Model:<%=vehicle.model%></li>
+    <li class='make'><h3><%=vehicle.make%></h3></li>
+    <li class='model'><h4><%=vehicle.model%></h4></li>
     <li class='year'>Year:<%=vehicle.year%></li>
     <li class='awd'>AWD:<%=vehicle.awd%></li>
     <li class='storage_rack'>Roof Rack:<%=vehicle.storage_rack%></li>
