@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_072645) do
     t.boolean "awd"
     t.boolean "storage_rack"
     t.integer "total_seats"
+    t.string "image"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_vehicles_on_user_id"
   end

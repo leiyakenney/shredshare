@@ -7,6 +7,7 @@ class CreateVehicles < ActiveRecord::Migration[5.2]
       t.boolean :awd
       t.boolean :storage_rack
       t.integer :total_seats
+      t.string :image
       t.references :user, foreign_key: true
     end
   end

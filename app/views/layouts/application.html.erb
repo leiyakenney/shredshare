@@ -48,21 +48,11 @@
 
             <%= link_to "Login", new_user_session_path %></strong></li>
         <% end %>
-
     </ul>
-  </div>
-  <% if request.env['PATH_INFO'] == "/users/#{current_user.id}" %>
-    <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(@user)%></p>
-  <% end %>
-</div>
-
-
-
 </nav>
 <% end %>
 
   <!-- </nav> -->
-
 
 <script>
 function openNav() {

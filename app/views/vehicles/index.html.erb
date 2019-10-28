@@ -3,11 +3,16 @@
 
 <% @vehicles.each do |vehicle|%>
   <ul class='vehicle'>
-      <li class='make'>Make:<%=vehicle.make%></li>
-      <li class='model'>Model:<%=vehicle.model%></li>
-      <li class='year'>Year:<%=vehicle.year%></li>
-      <li class='awd'>AWD:<%=vehicle.awd%></li>
-      <li class='storage_rack'>Roof Rack:<%=vehicle.storage_rack%></li>
-      <li class='total_seats'>Total Seats:<%=vehicle.total_seats%></li>
+    <div class='image-circle-show'>
+      <img> <%= image_tag(vehicle.picture_url, width: 200, height: 200)%>
+      </img>
+    </div>
+
+    <li class='make'>Make:<%=vehicle.make%></li>
+    <li class='model'>Model:<%=vehicle.model%></li>
+    <li class='year'>Year:<%=vehicle.year%></li>
+    <li class='awd'>AWD:<%=vehicle.awd%></li>
+    <li class='storage_rack'>Roof Rack:<%=vehicle.storage_rack%></li>
+    <li class='total_seats'>Total Seats:<%=vehicle.total_seats%></li>
   </ul>
 <% end %>
