@@ -39,8 +39,8 @@ describe "A user visits show page: " do
       expect(page).to have_css('.model')
       expect(page).to have_css('.vehicle-year')
       expect(page).to have_css('.awd')
-      expect(page).to have_css('.storage_rack')
-      expect(page).to have_css('.total_seats')
+      expect(page).to have_css('.storage-rack')
+      expect(page).to have_css('.total-seats')
     end
   end
 
@@ -88,5 +88,18 @@ describe "A user visits show page: " do
     expect(page).to have_content('RX 300')
     expect(page).to have_content('2019')
     expect(page).to have_content('Total Seats: 4')
+  end
+
+  it "user can delete a vehicle" do
+    vehicle = @user.vehicles.create!(make: 'vehicle_1', model: 'model_1', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+    vehicle_2 = @user.vehicles.create!(make: 'vehicle_2', model: 'model_2', year: '2019', awd: true, storage_rack: true, total_seats: 3)
+    visit "/users/#{@user.id}/vehicles/#{vehicle.id}"
+
+    expect(page).to have_link('Remove')
+    click_on 'Remove'
+
+    expect(current_path).to eq(user_vehicles_path(@user.id))
+    expect(page).to_not have_content(vehicle.make)
+    expect(page).to have_content(vehicle_2.make)
   end
 end

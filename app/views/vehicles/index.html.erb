@@ -1,6 +1,8 @@
 <h1>My Vehicles</h1>
 <h3><%= "Total Vehicles: #{@vehicles.count}" %></h3>
-
+<%= link_to 'Add A Vehicle', new_user_vehicle_path(current_user.id) %>
+<br>
+<br>
 <% @vehicles.each do |vehicle|%>
   <ul class='vehicle'>
     <div class='car-icon'>
@@ -33,7 +35,7 @@
         <p>Storage Rack: <i class="far fa-square"></i></p>
       </div>
     <% end %>
-    <p class='total_seats'>Total Seats: <%=vehicle.total_seats%></p>
+    <p class='total-seats'>Total Seats: <%=vehicle.total_seats%></p>
   </ul>
   <hr>
 <% end %>

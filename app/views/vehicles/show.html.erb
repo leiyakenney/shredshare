@@ -27,4 +27,5 @@
   </div>
 <% end %>
 <p class='total_seats'>Total Seats: <%=@vehicle.total_seats%></p>
-<%= link_to 'Edit', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}/edit" %>
+<%= link_to 'Edit', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}/edit" %> |
+<%= link_to 'Remove', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}", :method=> :delete, data: { confirm: 'Are you sure?' } %>

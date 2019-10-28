@@ -35,6 +35,16 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def destroy
+    vehicle = Vehicle.find(params[:id])
+    if vehicle.destroy && (current_user.vehicles.count == 0)
+      redirect_to user_path(current_user.id), notice: 'Vehicle was removed.'
+    elsif vehicle.destroy && (current_user.vehicles.count >= 1)
+      redirect_to user_vehicles_path(current_user.id), notice: 'Vehicle was removed.'
+    else
+      redirect_to user_vehicles_path(current_user.id), alert: 'Something went wrong. Please try again.'
+    end
+  end
 private
 
   def vehicle_params
