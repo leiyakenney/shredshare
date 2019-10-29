@@ -29,22 +29,24 @@
 </p>
 
 <p>
-  <% if @user.sport_type != "" %>
+  <% if @user.sport_type != nil && @user.sport_type != "" %>
     <strong>Sport Type:</strong> <br>
     <%= @user.sport_type %>
   <% end %>
 </p>
 
 <p>
-  <% if @user.pass != "" %>
-    <strong>Mountain Pass:</strong> <br>
+  <% if @user.pass != nil && @user.pass != "" %>
+    <strong>Ski Pass:</strong> <br>
     <%= @user.pass %>
   <% end %>
 </p>
 
 <p>
+  <% if @user.bio != "" %>
   <strong>Bio:</strong>
   <%= @user.bio %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
