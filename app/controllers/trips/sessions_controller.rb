@@ -5,4 +5,9 @@ class Trips::SessionsController < ApplicationController
     sessons[:trip]
   end
 
+  def finish_trip
+    session.delete(:trip)
+    redirect_to lift_buddy_index_path
+  end
+
 end
