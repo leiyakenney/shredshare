@@ -21,13 +21,14 @@ describe "as a user" do
 
     visit profile_path(@user)
 
-    within "review-#{review_1.id}" do
+    expect(page).to have_content("User Reviews")
+    expect(page).to have_css(".reviews")
+
+    within ".reviews" do
       expect(page).to have_content(review_1.title)
       expect(page).to have_content(review_1.content)
       expect(page).to have_content("User Rating: #{review_1.rating}/5")
-    end
-
-    within "review-#{review_2.id}" do
+      
       expect(page).to have_content(review_2.title)
       expect(page).to have_content(review_2.content)
       expect(page).to have_content("User Rating: #{review_2.rating}/5")
