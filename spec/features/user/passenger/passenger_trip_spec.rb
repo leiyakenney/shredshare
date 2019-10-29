@@ -40,7 +40,6 @@ RSpec.describe "Trip Buttons" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
     visit "/trip_dashboard"
 
-    click_on "Looking To Put My Junk In Your Trunk"
     expect(current_path).to eq("/trip_filter")
     expect(page).to have_css('.trip_filter_form')
     expect(page).to have_content("Need A Ride")
