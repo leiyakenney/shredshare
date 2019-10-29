@@ -39,7 +39,7 @@ module ApplicationHelper
       ['Friday'],
       ['Saturday'],
       ['Sunday'],
-      ['Weekend Fri-Sun'],
+      ['Weekend Sat-Sun'],
       ['Any Day']
     ]
   end
