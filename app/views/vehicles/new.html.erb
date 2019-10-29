@@ -16,6 +16,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :total_seats %>
+    <%= form.number_field :total_seats, placeholder: "   Including Driver", min: 1, required: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :awd %>
     <%= form.check_box :awd %>
   </div>
@@ -23,11 +28,6 @@
   <div class="field">
     <%= form.label :storage_rack %>
     <%= form.check_box :storage_rack %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_seats %>
-    <%= form.number_field :total_seats, min: 1, required: true %>
   </div>
 
   <div class="actions">
