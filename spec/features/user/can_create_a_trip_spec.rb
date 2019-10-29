@@ -31,7 +31,7 @@ RSpec.describe "A driver can create a trip" do
 
       visit ('/trip_dashboard')
       click_on "I Need Cheeks In My Seats"
-      
+
       expect(current_path).to eq('/trip_dashboard/drivers/new')
       expect(page).to have_css('.trip_creation_form')
       expect(page).to have_content("Trip Details")

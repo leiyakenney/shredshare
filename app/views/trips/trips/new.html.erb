@@ -9,7 +9,7 @@
     <%= select_tag(:departure_day, options_for_select(days_list), {class: "day-field"}) %>
     <%= select_tag(:departure_month, options_for_select(month_list), {class: "month-field"}) %>
     <%= select_tag(:departure_year, options_for_select(year_list), {class: "year-field"}) %>
-    
+
     <%= submit_tag('SEND IT', class: "button") %>
   <% end %>
 

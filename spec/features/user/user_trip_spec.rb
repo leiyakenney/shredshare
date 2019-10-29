@@ -6,7 +6,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "User Trip Buttons" do
+RSpec.describe "Trip Buttons" do
 
   describe "Registered User Trip Dashboard" do
     before :each do
