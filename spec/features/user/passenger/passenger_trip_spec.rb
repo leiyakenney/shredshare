@@ -1,9 +1,3 @@
-# As a user, when I visit '/dashboard',
-# I should see two buttons
-#
-#  Button 1: I Need Cheeks In My Seats (Give A Ride)
-#  Button 2: Looking To Put My Junk In Your Trunk (Need A Ride)
-
 require 'rails_helper'
 
 RSpec.describe "Trip Buttons" do
