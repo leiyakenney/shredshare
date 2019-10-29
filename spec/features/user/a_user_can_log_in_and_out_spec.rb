@@ -24,7 +24,7 @@ describe "as a user" do
   end
 
   it "I can log out and sign back in" do
-    within('.nav-bar') do
+    within('#menuToggle') do
       click_on 'Logout'
     end
     expect(current_path).to eq('/')
