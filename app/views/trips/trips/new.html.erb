@@ -6,7 +6,7 @@
     <p>Destination</p><%= select_tag(:destination, options_for_select(destination_list), {class: "destination-field"}) %>
 
     <p>Date of Departure</p>
-    <%= select_tag(:departure_day, options_for_select(days_list), {class: "day-field"}) %>
+    <%= select_tag(:departure_day, options_for_select(dates_list), {class: "date-field"}) %>
     <%= select_tag(:departure_month, options_for_select(month_list), {class: "month-field"}) %>
     <%= select_tag(:departure_year, options_for_select(year_list), {class: "year-field"}) %>
 

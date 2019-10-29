@@ -29,7 +29,7 @@ module ApplicationHelper
     ]
   end
 
-  def dates_list
+  def days_list
     [
       [' '],
       ['Monday'],
@@ -44,7 +44,7 @@ module ApplicationHelper
     ]
   end
 
-  def days_list
+  def dates_list
     [
       [' '],
       ['01'],
