@@ -29,8 +29,17 @@
 </p>
 
 <p>
-    <strong>Sport type:</strong> <br>
+  <% if @user.sport_type != "" %>
+    <strong>Sport Type:</strong> <br>
     <%= @user.sport_type %>
+  <% end %>
+</p>
+
+<p>
+  <% if @user.pass != "" %>
+    <strong>Mountain Pass:</strong> <br>
+    <%= @user.pass %>
+  <% end %>
 </p>
 
 <p>
@@ -38,7 +47,7 @@
   <%= @user.bio %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user.id) %> | 
+<%= link_to 'Edit', edit_user_path(@user.id) %> |
 <%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>
 
 </div>
