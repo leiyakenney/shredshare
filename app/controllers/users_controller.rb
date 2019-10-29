@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def create
@@ -49,13 +50,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def set_user
+    @user = current_user
+  end
+  
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
-
     def user_params
-      params.require(:user).permit(:user_name, :first_name, :last_name, :picture, :pass, :bio, :sport_type)
+      params.require(:user).permit(:user_name, :first_name, :last_name, :email, :picture, :pass, :bio, :sport_type)
     end
 end
