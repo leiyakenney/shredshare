@@ -34,6 +34,5 @@ describe "as a user" do
     click_on 'Log in'
     expect(page).to have_content("Signed in successfully.")
     expect(page).to have_content(@user_name)
-
   end
 end
