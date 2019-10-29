@@ -6,5 +6,7 @@ class User < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates_presence_of :user_name, :first_name, :last_name, :email
   validates_uniqueness_of :user_name
-  
+
+  has_many :vehicles
+
 end

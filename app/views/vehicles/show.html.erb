@@ -1,0 +1,31 @@
+<div class='car-icon'>
+  <% if @vehicle.image == nil %>
+    <%= image_tag("https://www.chalets-meribel.co.uk/images/graphics/car-journey.png", width: 50, height: 50) %>
+  <% else %>
+    <img> <%= image_tag(@vehicle.image, width: 50, height: 50)%>
+    </img>
+  <% end %>
+</div>
+
+<h1><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model}" %> </h1>
+<% if @vehicle.awd == true %>
+  <div class="awd">
+    <p>AWD: <i class="far fa-check-square"></i></p>
+  </div>
+<% else %>
+  <div class="awd">
+    <p>AWD: <i class="far fa-square"></i></p>
+  </div>
+<% end %>
+<% if @vehicle.storage_rack == true %>
+  <div class="storage-rack">
+    <p>Storage Rack: <i class="far fa-check-square"></i></p>
+  </div>
+<% else %>
+  <div class="storage-rack">
+    <p>Storage Rack: <i class="far fa-square"></i></p>
+  </div>
+<% end %>
+<p class='total_seats'>Total Seats: <%=@vehicle.total_seats%></p>
+<%= link_to 'Edit', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}/edit" %> |
+<%= link_to 'Remove', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}", :method=> :delete, data: { confirm: 'Are you sure?' } %>
