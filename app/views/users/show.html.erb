@@ -1,3 +1,9 @@
+<nav class="nav-bar">
+  <div class="fs-pencil-alt">
+    <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(@user)%></p>
+  </div>
+</nav>
+
 <div class="container">
 
 </div>
@@ -32,7 +38,7 @@
   <%= @user.bio %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user.id) %> | 
+<%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>
 
 </div>
