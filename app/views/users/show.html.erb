@@ -1,3 +1,9 @@
+<nav class="nav-bar">
+  <div class="fs-pencil-alt">
+    <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(@user)%></p>
+  </div>
+</nav>
+
 <div class="container">
 
 </div>
@@ -23,16 +29,27 @@
 </p>
 
 <p>
-    <strong>Sport type:</strong> <br>
+  <% if @user.sport_type != nil && @user.sport_type != "" %>
+    <strong>Sport Type:</strong> <br>
     <%= @user.sport_type %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
+  <% if @user.pass != nil && @user.pass != "" %>
+    <strong>Ski Pass:</strong> <br>
+    <%= @user.pass %>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <% if @user.bio != "" %>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
+<%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>
 
 </div>

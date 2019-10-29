@@ -1,0 +1,40 @@
+
+<h1>My Vehicles</h1>
+<h3><%= "Total Vehicles: #{@vehicles.count}" %></h3>
+<%= link_to 'Add A Vehicle', new_user_vehicle_path(current_user.id) %>
+<br>
+<br>
+<% @vehicles.each do |vehicle|%>
+<div class='vehicle'>
+  <div class='car-icon'>
+    <% if vehicle.image == nil %>
+      <%= link_to image_tag("https://www.chalets-meribel.co.uk/images/graphics/car-journey.png", width: 50, height: 50), user_vehicle_path(current_user.id, vehicle.id) %>
+    <% else %>
+      <img> <%= image_tag(vehicle.image, width: 50, height: 50)%>
+      </img>
+    <% end %>
+  </div>
+
+  <h2><%= "#{vehicle.year} #{vehicle.make} #{vehicle.model}" %> </h2>
+  <p class='total-seats'>Total Seats: <%=vehicle.total_seats%></p>
+  <% if vehicle.awd == true %>
+    <div class="awd">
+      <p>AWD: <i class="far fa-check-square"></i></p>
+    </div>
+  <% else %>
+    <div class="awd">
+      <p>AWD: <i class="far fa-square"></i></p>
+    </div>
+  <% end %>
+  <% if vehicle.storage_rack == true %>
+    <div class="storage-rack">
+      <p>Storage Rack: <i class="far fa-check-square"></i></p>
+    </div>
+  <% else %>
+    <div class="storage-rack">
+      <p>Storage Rack: <i class="far fa-square"></i></p>
+    </div>
+  <% end %>
+</div>
+<hr>
+<% end %>

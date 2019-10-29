@@ -41,5 +41,18 @@ ActiveRecord::Schema.define(version: 2019_10_28_215944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.string "year"
+    t.boolean "awd"
+    t.boolean "storage_rack"
+    t.integer "total_seats"
+    t.string "image"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_vehicles_on_user_id"
+  end
+
   add_foreign_key "reviews", "users"
+  add_foreign_key "vehicles", "users"
 end
