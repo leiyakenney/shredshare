@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   validates_presence_of :user_name, :first_name, :last_name, :email
   validates_uniqueness_of :user_name
+
+  def avg_rtg
+    reviews.average(:rating)
+  end
 end
