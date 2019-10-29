@@ -8,6 +8,7 @@
 </div>
 
 <h1><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model}" %> </h1>
+<p class='total_seats'>Total Seats: <%=@vehicle.total_seats%></p>
 <% if @vehicle.awd == true %>
   <div class="awd">
     <p>AWD: <i class="far fa-check-square"></i></p>
@@ -26,6 +27,5 @@
     <p>Storage Rack: <i class="far fa-square"></i></p>
   </div>
 <% end %>
-<p class='total_seats'>Total Seats: <%=@vehicle.total_seats%></p>
 <%= link_to 'Edit', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}/edit" %> |
 <%= link_to 'Remove', "/users/#{@vehicle.user_id}/vehicles/#{@vehicle.id}", :method=> :delete, data: { confirm: 'Are you sure?' } %>

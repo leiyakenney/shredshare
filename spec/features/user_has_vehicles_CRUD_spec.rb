@@ -34,13 +34,11 @@ describe "A user visits show page: " do
 
     expect(page).to have_content('Total Vehicles: 1')
 
+    expect(page).to have_content("2001 Toyota Tacoma")
     within(first('.vehicle')) do
-      expect(page).to have_css('.make')
-      expect(page).to have_css('.model')
-      expect(page).to have_css('.vehicle-year')
+      expect(page).to have_css('.total-seats')
       expect(page).to have_css('.awd')
       expect(page).to have_css('.storage-rack')
-      expect(page).to have_css('.total-seats')
     end
   end
 
