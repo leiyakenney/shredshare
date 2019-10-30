@@ -27,6 +27,11 @@ describe "user reviews" do
   end
 
   it "users have a list of reviews" do
+    visit profile_path(@user)
+
+    expect(page).to_not have_content("Average User Rating: #{@user.avg_rtg}/5")
+    expect(page).to have_content("This user doesn't have any reviews yet")
+
     review_1 = @user.reviews.create!(title: "Full send brah", content: "Jerry's rad.", rating: 5)
     review_2 = @user.reviews.create!(title: "Crazy driver", content: "Jerry goes full send on the roads. Scary.", rating: 2)
 
@@ -49,65 +54,65 @@ describe "user reviews" do
     expect(page).to have_content("Average User Rating: #{@user.avg_rtg}/5")
   end
 
-  it "users can update reviews they've given to other riders" do
-    # @user rides with @user_2 on a trip
-    within "#lift-buddy-#{@user_2.id}" do
-      click_button("Review Me!")
-
-      fill_in "Title", with: "I don't like titles"
-      fill_in "Content", with: "Jerralina was cool."
-      fill_in "Rating", with: 4
-
-      click_button "Send It!"
-
-      @last_review = Review.last
-    end
-
-    visit profile_path(@user_2)
-
-    within "#review-#{@last_review.id}" do
-      click_button "Edit"
-    end
-
-    expect(current_path).to eq(edit_user_review_path(@user_2))
-    expect(page).to have_content("I don't like titles")
-    expect(page).to have_content("Jerralina was cool.")
-    expect(page).to have_content("User Rating: 4/5")
-
-    fill_in "Title", with: "Good lift buddy"
-    click_button "Send It!"
-
-    expect(current_path).to eq(profile_path(@user_2))
-
-    within "#review-#{@last_review.id}" do
-      expect(page).to_not have_content("I don't like titles")
-      expect(page).to have_content("Good lift buddy")
-    end
-  end
-
-  it "users can delete reviews they've given to other riders" do
-    # @user rides with @user_2 on a trip
-    # maybe create another review made by a user_3 to account for edge case? 
-    within "#lift-buddy-#{@user_2.id}" do
-      click_button("Review Me!")
-
-      fill_in "Title", with: "Good lift buddy"
-      fill_in "Content", with: "Jerralina was cool."
-      fill_in "Rating", with: 4
-
-      click_button "Send It!"
-
-      @last_review = Review.last
-    end
-
-    visit profile_path(@user_2)
-
-    within "#review-#{@last_review.id}" do
-      click_button "Delete"
-    end
-
-    expect(page).to have_content("Your review has been deleted!")
-    expect(current_path).to eq(profile_path(@user_2))
-    expect(page).to_not have_content("Good lift buddy")
-  end
+  # it "users can update reviews they've given to other riders" do
+  #   # @user rides with @user_2 on a trip
+  #   within "#lift-buddy-#{@user_2.id}" do
+  #     click_button("Review Me!")
+  #
+  #     fill_in "Title", with: "I don't like titles"
+  #     fill_in "Content", with: "Jerralina was cool."
+  #     fill_in "Rating", with: 4
+  #
+  #     click_button "Send It!"
+  #
+  #     @last_review = Review.last
+  #   end
+  #
+  #   visit profile_path(@user_2)
+  #
+  #   within "#review-#{@last_review.id}" do
+  #     click_button "Edit"
+  #   end
+  #
+  #   expect(current_path).to eq(edit_user_review_path(@user_2))
+  #   expect(page).to have_content("I don't like titles")
+  #   expect(page).to have_content("Jerralina was cool.")
+  #   expect(page).to have_content("User Rating: 4/5")
+  #
+  #   fill_in "Title", with: "Good lift buddy"
+  #   click_button "Send It!"
+  #
+  #   expect(current_path).to eq(profile_path(@user_2))
+  #
+  #   within "#review-#{@last_review.id}" do
+  #     expect(page).to_not have_content("I don't like titles")
+  #     expect(page).to have_content("Good lift buddy")
+  #   end
+  # end
+  #
+  # it "users can delete reviews they've given to other riders" do
+  #   # @user rides with @user_2 on a trip
+  #   # maybe create another review made by a user_3 to account for edge case?
+  #   within "#lift-buddy-#{@user_2.id}" do
+  #     click_button("Review Me!")
+  #
+  #     fill_in "Title", with: "Good lift buddy"
+  #     fill_in "Content", with: "Jerralina was cool."
+  #     fill_in "Rating", with: 4
+  #
+  #     click_button "Send It!"
+  #
+  #     @last_review = Review.last
+  #   end
+  #
+  #   visit profile_path(@user_2)
+  #
+  #   within "#review-#{@last_review.id}" do
+  #     click_button "Delete"
+  #   end
+  #
+  #   expect(page).to have_content("Your review has been deleted!")
+  #   expect(current_path).to eq(profile_path(@user_2))
+  #   expect(page).to_not have_content("Good lift buddy")
+  # end
 end
