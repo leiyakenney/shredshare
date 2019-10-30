@@ -24,7 +24,6 @@ class User < ApplicationRecord
       user.last_name = auth.info.last_name
       user.picture = auth.info.image
       user.password = Devise.friendly_token[0, 20]
-      # user.save!(validation: false)
     end
   end
 end
