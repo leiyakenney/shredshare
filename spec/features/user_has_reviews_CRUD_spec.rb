@@ -80,12 +80,14 @@ describe "user reviews" do
     expect(current_path).to eq(profile_path(@user_2))
 
     within "#review-#{@last_review.id}" do
+      expect(page).to_not have_content("I don't like titles")
       expect(page).to have_content("Good lift buddy")
     end
   end
 
   it "users can delete reviews they've given to other riders" do
     # @user rides with @user_2 on a trip
+    # maybe create another review made by a user_3 to account for edge case? 
     within "#lift-buddy-#{@user_2.id}" do
       click_button("Review Me!")
 
