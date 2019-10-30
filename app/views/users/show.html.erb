@@ -29,16 +29,43 @@
 </p>
 
 <p>
-    <strong>Sport type:</strong> <br>
+  <% if @user.sport_type != nil && @user.sport_type != "" %>
+    <strong>Sport Type:</strong> <br>
     <%= @user.sport_type %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
+  <% if @user.pass != nil && @user.pass != "" %>
+    <strong>Ski Pass:</strong> <br>
+    <%= @user.pass %>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user.id) %> | 
+<p>
+  <% if @user.bio != "" %>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+  <% end %>
+</p>
+<br>
+<strong>User Reviews:</strong><br>
+
+<% if @user.reviews != []%>
+  <section class = "reviews">
+  <% @user.reviews.each do |review| %>
+    Title: <%= review.title %>
+    Review: <%= review.content %>
+    User Rating: <%= review.rating %>/5
+  <% end %>
+  Average User Rating: <%= @user.avg_rtg %>/5
+  </section>
+<% else %>
+  This user doesn't have any reviews yet <br>
+<% end %>
+<br><br>
+
+<%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
 <%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>
 
 </div>

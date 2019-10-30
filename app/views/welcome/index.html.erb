@@ -5,5 +5,5 @@
 <br>
 <%= button_to "Register", new_user_registration_path, method: :get %>
 <br>
-<%= button_to "Log In via Google" %>
+<%= button_to "Log In via Google", user_google_oauth2_omniauth_authorize_path, method: :get %>
 </center>
