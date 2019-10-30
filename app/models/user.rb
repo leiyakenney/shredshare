@@ -18,10 +18,13 @@ class User < ApplicationRecord
       user.expires = auth.credentials.expires
       user.expires_at = auth.credentials.expires_at
       user.refresh_token = auth.credentials.refresh_token
+      user.email = auth.info.email
       user.user_name = auth.info.name
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.picture = auth.info.image
+      user.password = Devise.friendly_token[0, 20]
+      # user.save!(validation: false)
     end
   end
 end
