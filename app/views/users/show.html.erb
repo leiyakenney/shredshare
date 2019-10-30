@@ -48,18 +48,22 @@
   <%= @user.bio %>
   <% end %>
 </p>
+<br>
+<strong>User Reviews:</strong><br>
 
-<h3>User Reviews</h3>
-
-<section class = "reviews">
-<% @user.reviews.each do |review| %>
-  Title: <%= review.title %>
-  Review: <%= review.content %>
-  User Rating: <%= review.rating %>/5
+<% if @user.reviews != []%>
+  <section class = "reviews">
+  <% @user.reviews.each do |review| %>
+    Title: <%= review.title %>
+    Review: <%= review.content %>
+    User Rating: <%= review.rating %>/5
+  <% end %>
+  Average User Rating: <%= @user.avg_rtg %>/5
+  </section>
+<% else %>
+  This user doesn't have any reviews yet <br>
 <% end %>
-Average User Rating: <%= @user.avg_rtg %>/5
-</section>
-
+<br><br>
 <%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
 <%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>
 
