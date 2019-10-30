@@ -7,7 +7,7 @@ class Trips::SessionsController < ApplicationController
 
   def finish_trip
     session.delete(:trip)
-    redirect_to lift_buddy_index_path
+    redirect_to trip_lift_buddies_path
   end
 
 end
