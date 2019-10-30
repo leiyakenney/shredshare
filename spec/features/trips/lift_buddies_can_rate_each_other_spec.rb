@@ -34,7 +34,7 @@ describe "user review creation" do
         expect(page).to have_button("Review Me!")
       end
 
-      within "#lift-buddy-#{@buddy_.id}" do
+      within "#lift-buddy-#{@buddy_2.id}" do
         expect(page).to have_button("Review Me!")
       end
     end
@@ -46,27 +46,34 @@ describe "user review creation" do
 
       within "#lift-buddy-#{@buddy_1.id}" do
         click_button("Review Me!")
+      end
 
-        expect(current_path).to eq(new_user_review_path(@buddy_1))
+      expect(current_path).to eq(new_user_review_path(@buddy_1))
 
-        fill_in "Title", with: title
-        fill_in "Content", with: content
-        fill_in "Rating", with: rating
+      fill_in "Title", with: title
+      fill_in "Content", with: content
+      fill_in "Rating", with: rating
 
-        click_button "Send It!"
+      click_button "Send It!"
 
-        last_review = Review.last
+      last_review = Review.last
 
-        expect(current_path).to eq(profile_path(@buddy_1))
-        expect(last_review.title).to eq(title)
-        expect(last_review.content).to eq(content)
-        expect(last_review.rating).to eq(rating)
+      expect(page).to have_content("You have successfully reviewed this lift buddy!")
+      expect(current_path).to eq(trip_lift_buddies_path)
 
-        within "#review-#{last_review.id}" do
-          expect(page).to have_content(title)
-          expect(page).to have_content(content)
-          expect(page).to have_content("User Rating: #{rating}/5")
-        end
+      within "#lift-buddy-#{@buddy_2.id}" do
+        expect(page).to have_button("Review Me!")
+      end
+
+      visit profile_path(@buddy_1)
+      expect(last_review.title).to eq(title)
+      expect(last_review.content).to eq(content)
+      expect(last_review.rating).to eq(rating)
+
+      within "#review-#{last_review.id}" do
+        expect(page).to have_content(title)
+        expect(page).to have_content(content)
+        expect(page).to have_content("User Rating: #{rating}/5")
       end
     end
 
@@ -101,7 +108,7 @@ describe "user review creation" do
         click_button "Send It!"
         expect(page).to have_content("Rating must be between 1 and 5")
         expect(page).to have_content("Review Me!")
-      end 
+      end
     end
   end
 end
