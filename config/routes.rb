@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post '/trips', to: "trips/filter#create", as: :trip_filter_creation
 
   get '/trip_dashboard/drivers/new', to: "trips/trips#new", as: :trip_creation
+
 end

@@ -14,4 +14,5 @@ class User < ApplicationRecord
   def avg_rtg
     reviews.average(:rating)
   end
+
 end
