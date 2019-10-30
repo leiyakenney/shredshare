@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
 
+  resources :trips do
+    resources :lift_buddies, only: [:index]
+  end 
+
   get '/trip_dashboard', to: "trips/buttons#index"
 
   get '/trip_filter', to: "trips/filter#new"
