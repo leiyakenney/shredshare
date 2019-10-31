@@ -34,12 +34,16 @@
           <li><strong><i class="far fa-snowflake"></i>
             <%= link_to "About", "#"%></strong></li>
 
+          <li><strong><i class="fas fa-home"></i>
+            <%= link_to "Home", trip_dashboard_path%></strong></li>
+
+            <% if user_signed_in? %>
+            <li><strong><i class="fas fa-user"></i>
+              <%= link_to "Profile", profile_path %></strong></li>
+              
           <li><strong><i class="fas fa-car-side"></i>
             <%= link_to "My Rides", "#"%></strong></li>
 
-            <% if user_signed_in? %>
-              <li><strong><i class="fas fa-user"></i>
-              <%= link_to "Profile", profile_path %></strong></li>
 
               <% if current_user.vehicles.count >= 1 %>
                 <li><strong><i class="fas fa-car"></i>
