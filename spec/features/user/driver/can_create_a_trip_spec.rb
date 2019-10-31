@@ -30,7 +30,7 @@ RSpec.describe "A driver can create a trip" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
 
       visit ('/trip_dashboard')
-      click_on "I Need Cheeks In My Seats"
+      click_on "Give A Ride"
 
       expect(current_path).to eq('/trip_dashboard/drivers/new')
       expect(page).to have_css('.trip_creation_form')
