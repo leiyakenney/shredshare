@@ -6,10 +6,15 @@ class User < ApplicationRecord
          ]
   mount_uploader :picture, PictureUploader
 
+  has_many :vehicles
+  has_many :reviews, :dependent => :destroy
+
   validates_presence_of :user_name, :first_name, :last_name, :email
   validates_uniqueness_of :user_name
 
-  has_many :vehicles
+  def avg_rtg
+    reviews.average(:rating)
+  end
 
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID

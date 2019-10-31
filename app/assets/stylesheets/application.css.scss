@@ -52,9 +52,13 @@ body
 {
   margin: 0;
   padding: 0;
+  background-image: url("http://clipart-library.com/images_k/mountain-transparent/mountain-transparent-12.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
 
   /* make it look decent enough */
-  background: white;
+  // background: white;
   color: #black;
   font-family: "Avenir Next", "Avenir", sans-serif;
 

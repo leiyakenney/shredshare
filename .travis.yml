@@ -12,4 +12,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: <%= ENV['HEROKU_API_KEY'] %>
+    secure: cQi/++hj7ZeHP3LWFVp8+UucaNz5IovTiQDU1kk75P+WHtDSXueHd4y5YUdLSSQGlFp2b+HkCO/8iyt3iHdPFLsNRo6RLl9vxrWGxdwyiIO/Bz55gTY4Y5+Cm2+hZQTnTWMWSOi4xwHdoEASep+GneK+IIiLDmh6hjKBScBHMXGIQnMDgbTruY7d+UukussjivL5Osce2HoNgkf4Q7qqvSY94RDVJ/TaGWoo9RhkwS0OImyJCV7HevFoamj5F/yxfdbh1HRitaBoIG4Mwg+wSfbkJILMigJ4A0UFt70tXMgWYhWXVkBNpV6pIBS2yvcePV4qsaLRjFj6jd9K8QSI85iJAEh9Quk2EPjrbpikVBNQ4dBx37YbCCUJ5LV49pt05IMDm9vapMshwpz2amCSNUbNQNI4X9QWxS9sMpBLbYla+K79iMZ0CsJPE44SeD+jga7kjKqk5N4q8ciFqFpPEPf4Sqi7SnG5QlaxOHKQk4sxYjgQCY16y+8CSfRH7e5dX3BBfIyBQQJVb6/O/W8fNX3XD3dAcq63mA0OjfPnpLFkKdjGwvNPAfUm51z4+TDTawSsgEY+E41oKr5+TDTJaqUv0v93QQA2UCYaGmnu0/birb3UB3qOe76gXBSld2tjPCjDuxa4b+PhUHJEMtUrbtWqmYW8LuhTQAQ1mFSE904=
+  app: shred-share
+  on:
+    repo: leiyakenney/shredshare
