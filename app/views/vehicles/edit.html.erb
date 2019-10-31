@@ -1,36 +1,5 @@
-<%= form_with model: [:user, @vehicle], local: true do |form| %>
-
-  <div class="field">
-    <%= form.label :make %>
-    <%= form.text_field :make, required: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model, required: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year, required: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_seats %>
-    <%= form.number_field :total_seats, placeholder: "   Including Driver", min: 1, required: true %>  </div>
-
-  <div class="field">
-    <%= form.label :awd %>
-    <%= form.check_box :awd %>
-  </div>
-
-  <div class="field">
-    <%= form.label :storage_rack %>
-    <%= form.check_box :storage_rack %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit "Update Vehicle" %>
-  </div>
-<% end %>
+<%= render partial: 'form', locals: {
+  path: user_vehicle_path(@vehicle.id),
+  method: :patch,
+  button_text: 'Update Vehicle'
+} %>

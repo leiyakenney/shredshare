@@ -11,6 +11,7 @@ gem 'travis'
 gem 'rake'
 gem 'omniauth-google-oauth2'
 gem 'cancan'
+gem "skylight"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

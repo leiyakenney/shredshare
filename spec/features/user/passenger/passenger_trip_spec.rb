@@ -21,15 +21,15 @@ RSpec.describe "Trip Buttons" do
     end
 
     it "As a user, when I visit '/trip_dashboard', I see two buttons.
-      Button 1: 'I Need Cheeks In My Seats (Give A Ride)'
-      Button 2: 'Looking To Put My Junk In Your Trunk (Need A Ride)'" do
+      Button 1: 'GIVE A RIDE (I Need Cheeks In My Seats)'
+      Button 2: 'NEED A RIDE (Looking To Put My Junk In Your Trunk)'" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
       visit ('/trip_dashboard')
 
-      expect(page).to have_link("I Need Cheeks In My Seats")
-      expect(page).to have_link("Looking To Put My Junk In Your Trunk")
-      expect(page).to have_content("Give A Ride")
-      expect(page).to have_content("Need A Ride")
+      expect(page).to have_link("Give A Ride")
+      expect(page).to have_link("Need A Ride")
+      expect(page).to have_content("I Need Cheeks In My Seats")
+      expect(page).to have_content("Looking To Put My Junk In Your Trunk")
     end
 
     it "As a user, when I am on '/trips_dashboard' and I click on
@@ -40,7 +40,7 @@ RSpec.describe "Trip Buttons" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
     visit "/trip_dashboard"
 
-    click_on "Looking To Put My Junk In Your Trunk"
+    click_on "Need A Ride"
     expect(current_path).to eq("/trip_filter")
     expect(page).to have_css('.trip_filter_form')
     expect(page).to have_content("Need A Ride")
