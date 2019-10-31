@@ -100,5 +100,10 @@ describe "A user visits show page: " do
     expect(current_path).to eq(user_vehicles_path(@user.id))
     expect(page).to_not have_content(vehicle.make)
     expect(page).to have_content(vehicle_2.make)
+
+    visit "/users/#{@user.id}/vehicles/#{vehicle_2.id}"
+    click_on 'Remove'
+    expect(current_path).to eq(profile_path)
+    expect(page).to have_content("Vehicle was removed.")
   end
 end
