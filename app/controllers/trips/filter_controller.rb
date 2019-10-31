@@ -8,4 +8,8 @@ class Trips::FilterController < ApplicationController
     binding.pry
   end
 
+  def show
+    
+  end
+
 end

@@ -7,5 +7,5 @@ class ReviewsController<ApplicationController
 
   def new
     @review = @user.reviews.new
-  end 
+  end
 end
