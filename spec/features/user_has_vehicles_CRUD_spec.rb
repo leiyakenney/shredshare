@@ -1,6 +1,32 @@
 require 'rails_helper'
 
 describe "A user visits show page: " do
+  it "newly added vehicle is associated with current user" do
+    other_user = User.create!(user_name: "other_user", first_name: "other", last_name: "user", email: "other@email.com", password: 'password')
+    user = User.create!(user_name: "user 1", first_name: "user", last_name: "One", pass:"Epic", bio: "Hi, my name is Jerry.", email: "user_1@email.com", password: 'password')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit profile_path
+
+    click_on 'Add A Vehicle'
+    expect(current_path).to eq(new_user_vehicle_path(user.id))
+
+    fill_in 'Make', with: 'Toyota'
+    fill_in 'Model', with: 'Tacoma'
+    fill_in 'Year', with: '2001'
+    check('Awd')
+    check('Storage rack')
+    fill_in 'Total seats', with: 4
+
+    click_on "Add Vehicle"
+    expect(current_path).to eq(user_vehicles_path(user.id))
+    expect(page).to have_content('Total Vehicles: 1')
+
+    click_on "Logout"
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(other_user)
+    visit profile_path
+    expect(page).to_not have_link("My Vehicles")
+  end
+
   before :each do
     @user = User.create!(user_name: "jerry_of_the_day", first_name: "Jerry", last_name: "Jones", pass:"Epic", bio: "Hi, my name is Jerry.", email: "jerry@email.com", password: 'password')
 
@@ -35,6 +61,7 @@ describe "A user visits show page: " do
     expect(page).to have_content('Total Vehicles: 1')
 
     expect(page).to have_content("2001 Toyota Tacoma")
+
     within(first('.vehicle')) do
       expect(page).to have_css('.total-seats')
       expect(page).to have_css('.awd')
