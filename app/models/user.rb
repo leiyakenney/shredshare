@@ -16,6 +16,10 @@ class User < ApplicationRecord
     reviews.average(:rating)
   end
 
+  def has_vehicles?
+    vehicles.any?
+  end
+
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
