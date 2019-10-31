@@ -18,7 +18,8 @@
         <% end %></h5>
     </div>
 
-    <% if request.env['PATH_INFO'] != '/' %>
+    <%# <% if request.env['PATH_INFO'] != ('/' || '/users/sign_in' || '/users/sign_up') %> %>
+    <% if user_signed_in?  %>
       <nav role="navigation">
         <div class="nav-bar">
         <div id="menuToggle">
@@ -34,7 +35,8 @@
           <li><strong><i class="far fa-snowflake"></i>
             <%= link_to "About", "#"%></strong></li>
 
-          <li><strong><i class="fas fa-car-side"></i><%= link_to "My Rides", "#"%></strong></li>
+          <li><strong><i class="fas fa-car-side"></i>
+            <%= link_to "My Rides", "#"%></strong></li>
 
             <% if user_signed_in? %>
               <li><strong><i class="fas fa-user"></i>
@@ -48,7 +50,7 @@
               <li><strong><i class="fas fa-sign-out-alt"></i>
               <%= link_to "Logout", destroy_user_session_path, method: :delete%></strong></li>
 
-              <% else %>
+            <% else %>
                 <li><strong><i class="fas fa-user-plus"></i>
                   <%= link_to "Sign up", new_user_registration_path %></strong></li>
 
@@ -57,9 +59,9 @@
 
             <% end %>
         </ul>
-      </div>
-    </div>
-    </nav>
+        </div>
+        </div>
+      </nav>
     <% end %>
 
       <!-- </nav> -->
@@ -87,7 +89,7 @@
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
 
-          <%= yield %>
+        <%= yield %>
       </div>
 
       <footer class="navbar-expand-lg">

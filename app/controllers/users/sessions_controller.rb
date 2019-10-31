@@ -14,8 +14,6 @@ class Users::SessionsController < Devise::SessionsController
     yield resource if block_given?
     redirect_to trip_dashboard_path
     # respond_with resource, location: user_path(resource)
-    # super
-    # redirect_to user_path(current_user.id)
   end
 
   def destroy
