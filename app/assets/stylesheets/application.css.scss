@@ -62,8 +62,6 @@ body
   color: #black;
   font-family: "Avenir Next", "Avenir", sans-serif;
 
-// This is where the x on the hamburger bar is broken
-
   text-decoration: none;
   color: #232323;
   transition: color 0.3s ease;
@@ -179,10 +177,11 @@ a:hover
 {
   position: absolute;
   width: 300px;
-  margin: -100px 0 0 -50px;
+  margin: -100px 0 0 -54px;
   padding: 50px;
   padding-top: 125px;
-  padding-bottom: 300px;
+  padding-bottom: 160px;
+
   /* adjust padding-bottom to control lenght of menu */
 
   background-image: url("https://pccats.com/wp-content/uploads/2017/11/A83B6593-600x600.jpg");
@@ -226,3 +225,62 @@ a:hover
 .user-name{
   color: dodgerblue;
 }
+
+// css for trips/buttons/index
+.ride-buttons{
+  text-align: center;
+}
+
+.need_ride_button {
+  display: inline-block;
+  width: 400px;
+  height: 75px;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 0 5px 0 black;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.need_ride_button:hover {
+  background-color: lightgrey;
+}
+
+.need_ride_button:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+.give_ride_button {
+  display: inline-block;
+  width: 400px;
+  height: 75px;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 0 5px 0 black;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.give_ride_button:hover {
+  background-color: lightgrey;
+}
+
+.give_ride_button:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+/* Non-Demo Styles */
+// body {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
