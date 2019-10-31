@@ -26,8 +26,7 @@ describe "as a user" do
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
 
-    expect(page).to have_content(user_name)
-    expect(page).to have_content(first_name)
-    expect(page).to have_content(last_name)
+    expect(current_path).to eq(trip_dashboard_path)
+    expect(page).to have_content("Logged in as #{user_name}")
   end
 end

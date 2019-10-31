@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
       sign_in @user
-      redirect_to user_path(@user.id), notice: 'Successfully logged in using your Google account.'
+      redirect_to trip_dashboard_path, notice: 'Successfully logged in using your Google account.'
     else
       session["devise.google_data"] = request.env["omniauth.auth"]
       redirect_to root_path, alert: 'Something went wrong. Please try to register instead.'
