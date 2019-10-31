@@ -21,6 +21,14 @@
  */
 
  /* ____________________________________ */
+.field{
+  padding: 10px;
+}
+
+.field label{
+  margin: 0px 0px 1px;
+}
+
 .current-user-name{
   padding-top: 50px;
 }
@@ -271,7 +279,7 @@ a:hover
 
 .give_ride_button:hover {
   background-color: whitesmoke;
-  color: black; 
+  color: black;
 }
 
 .give_ride_button:active {
