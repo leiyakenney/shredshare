@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_161426) do
-
+ActiveRecord::Schema.define(version: 2019_10_31_141004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "rtd_locations", force: :cascade do |t|
     t.string "area"
@@ -25,12 +32,21 @@ ActiveRecord::Schema.define(version: 2019_10_30_161426) do
     t.string "place_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.integer "rating"
+  create_table "trips", force: :cascade do |t|
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.bigint "vehicle_id"
+    t.bigint "rtd_location_id"
+    t.integer "seats_available"
+    t.string "destination_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "day_of_trip"
+    t.string "month_of_trip"
+    t.string "year_of_trip"
+    t.string "ride_type"
+    t.index ["rtd_location_id"], name: "index_trips_on_rtd_location_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+    t.index ["vehicle_id"], name: "index_trips_on_vehicle_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,5 +85,8 @@ ActiveRecord::Schema.define(version: 2019_10_30_161426) do
   end
 
   add_foreign_key "reviews", "users"
+  add_foreign_key "trips", "rtd_locations"
+  add_foreign_key "trips", "users"
+  add_foreign_key "trips", "vehicles"
   add_foreign_key "vehicles", "users"
 end
