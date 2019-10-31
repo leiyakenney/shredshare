@@ -10,6 +10,22 @@ module ApplicationHelper
     ]
   end
 
+  def rtd_location_list
+    x = RtdLocation.all.map do |rtd|
+      rtd.name
+    end
+    y = x.unshift(' ')
+    y.each_slice(1).to_a
+  end
+
+  def vehicle_list
+    if current_user.has_vehicles?
+      current_user.vehicles.map do |vehicle|
+        "#{vehicle.make} #{vehicle.model}"
+      end.unshift(' ').each_slice(1).to_a
+    end
+  end
+
   def trip_list
     [
       [' '],
