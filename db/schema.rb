@@ -12,9 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_10_30_161426) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "rtd_locations", force: :cascade do |t|
     t.string "area"
@@ -23,14 +30,6 @@ ActiveRecord::Schema.define(version: 2019_10_30_161426) do
     t.float "latitude"
     t.float "longitude"
     t.string "place_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.integer "rating"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
