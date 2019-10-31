@@ -9,5 +9,4 @@ class Trip < ApplicationRecord
   validates_presence_of :rtd_location_id
   validates_presence_of :destination_point
   validates_presence_of :ride_type
-
 end
