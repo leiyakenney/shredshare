@@ -6,17 +6,17 @@ describe "A user visits show page: " do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-    visit user_path(@user.id)
+    visit profile_path
   end
 
   it "they see link to add a vehicle" do
-    expect(current_path).to eq(user_path(@user.id))
+    expect(current_path).to eq(profile_path)
 
     expect(page).to have_link('Add A Vehicle')
   end
 
   it "they are taken to a form when they click on 'Add A Vehicle'" do
-    visit user_path(@user.id)
+    visit profile_path
     expect(page).to have_link('Add A Vehicle')
     click_on 'Add A Vehicle'
     expect(current_path).to eq(new_user_vehicle_path(@user.id))
