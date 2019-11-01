@@ -76,7 +76,6 @@ RSpec.describe "Trips Available To Join" do
           click_link "Drop Out! (Cancel This Ride)"
         end
         expect(current_path).to eq(my_rides_path)
-        expect(page).to_not have_content(@trip2.ride_type)
     end
   end
 end
