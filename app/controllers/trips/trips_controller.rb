@@ -31,7 +31,6 @@ class Trips::TripsController < ApplicationController
   end
 
   def edit
-    binding.pry
     @user = current_user
     @trip = Trip.find(params[:id])
   end
@@ -40,7 +39,6 @@ class Trips::TripsController < ApplicationController
   # know that this trip has been changed and giving them the option to cancel
   # their participation from the email.
   def update
-    binding.pry
     @user = current_user
     @trip = Trip.find(params[:id])
     @trip.update(trip_update_params)
