@@ -10,7 +10,7 @@
 
 require 'rails_helper'
 
-RSpec.decribe "Filtered views for passengers" do
+RSpec.describe "Filtered views for passengers" do
   describe "Using the filter form to build AR queries" do
     before :each do
 
@@ -99,6 +99,6 @@ RSpec.decribe "Filtered views for passengers" do
     it "As a passenger I leave all form options blank except Trip Type - Round Trip" do
 
     end
-    
+
   end
 end

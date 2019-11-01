@@ -31,6 +31,7 @@ class Trips::TripsController < ApplicationController
   end
 
   def edit
+    binding.pry
     @user = current_user
     @trip = Trip.find(params[:id])
   end

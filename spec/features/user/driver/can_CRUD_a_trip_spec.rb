@@ -69,7 +69,6 @@ RSpec.describe "A driver can CRUD trips" do
       expect(page).to have_link("Flake (Cancel This Trip)")
 
       click_link "Change Up (Edit This Trip)"
-      binding.pry
       expect(current_path).to eq(trip_edit_path(trip.id))
     end
   end

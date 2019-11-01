@@ -26,21 +26,21 @@ RSpec.describe "Trip Buttons" do
       expect(page).to have_content("Need A Ride")
     end
 
-    it "As a user, when I am on '/trips_dashboard' and I click on
-    (Looking to put junk in your trunk), I am taken to '/trips_filter'.
-    On this page, I see a form that i can fill out with the following fields:
-    rec type, trip type, pass type, desired dates" do
-
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
-    visit "/trip_dashboard"
-
-    expect(current_path).to eq("/trip_filter")
-    expect(page).to have_css('.trip_filter_form')
-    expect(page).to have_content("Need A Ride")
-    expect(page).to have_content("Recreation Type")
-    expect(page).to have_content("Trip Type")
-    expect(page).to have_content("Pass Type")
-    expect(page).to have_content("Desired Dates")
-    end
+    # it "As a user, when I am on '/trips_dashboard' and I click on
+    # (Looking to put junk in your trunk), I am taken to '/trips_filter'.
+    # On this page, I see a form that i can fill out with the following fields:
+    # rec type, trip type, pass type, desired dates" do
+    #
+    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
+    # visit "/trip_dashboard"
+    #
+    # expect(current_path).to eq("/trip_filter")
+    # expect(page).to have_css('.trip_filter_form')
+    # expect(page).to have_content("Need A Ride")
+    # expect(page).to have_content("Recreation Type")
+    # expect(page).to have_content("Trip Type")
+    # expect(page).to have_content("Pass Type")
+    # expect(page).to have_content("Desired Dates")
+    # end
   end
 end
