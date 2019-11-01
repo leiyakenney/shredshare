@@ -31,5 +31,7 @@ Rails.application.routes.draw do
 
   post '/rides/create', to: "trips/rides#create", as: :ride_create
 
+  get '/my_rides', to: "trips/rides#index", as: :my_rides
+
 
 end
