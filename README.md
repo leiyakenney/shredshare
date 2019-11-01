@@ -12,7 +12,7 @@ Check out the Shred Share Repo [HERE](https://github.com/leiyakenney/shredshare)
 
 Interact with Shred Share on Heroku [HERE](https://shred-share.herokuapp.com)
 
-# Built Using
+## Built Using
 - Rails
 - Ruby
 - Google API
@@ -21,16 +21,19 @@ Interact with Shred Share on Heroku [HERE](https://shred-share.herokuapp.com)
 
 Check out the Sinatra micro-service repo [HERE](https://github.com/nathangthomas/shredshare_microservice)
 
-# Run Shred Share on your local machine
+## Run Shred Share on your local machine
 1. `$ git clone git@github.com:leiyakenney/shredshare.git`
 2. `$ bundle`
 3. `$ bundle exec figaro install` (Add your google_client_id and google_client_secret to ./config/application.yml for google OAuth)
 
-```GOOGLE_CLIENT_ID: "<your Google Client ID>"
-GOOGLE_CLIENT_SECRET: "<your Google Client Secret>"```
+```GOOGLE_CLIENT_ID: "<your Google Client ID>"```
+
+```GOOGLE_CLIENT_SECRET: "<your Google Client Secret>"```
 
 4. `$ bundle exec rspec install`
 5. `$ rails db:{create,migrate}`
 6. `$ rake import:rtd`
 7. You can run test suite with `$ bundle exec rspec`
 8. Start a local server with `$ rails s` and access Shred Share in your browser at localhost:3000
+
+<img width="1215" alt="shred_share_schema" src="https://user-images.githubusercontent.com/47466067/68024100-c00a1880-fc6e-11e9-8610-e387c5d57052.png">
