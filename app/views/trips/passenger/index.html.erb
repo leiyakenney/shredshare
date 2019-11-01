@@ -8,7 +8,7 @@
     <%= trip.seats_available %>
     <%= trip.ride_type %>
     <%= trip.date_of_departure %>
-    <%= link_to "Catch This Lift", ride_create_path(@trip), method: :get %>
+    <%= link_to "Catch This Lift", ride_create_path(trip: trip.id), method: :post %>
   </section>
 
 <% end %>
