@@ -287,10 +287,48 @@ a:hover
   top: 5px;
 }
 
-/* Non-Demo Styles */
-// body {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-// }
+
+// button for vehicle index page
+.add-vehicle {
+  display: inline-block;
+  width: 200px;
+  height: 55px;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 0 5px 0 black;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.add-vehicle:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.add-vehicle:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+// user reviews
+.reviews{
+  text-align: center;
+}
+
+.review-card{
+  overflow: scroll;
+  background-color: white;
+  width: 500px;
+  height: 145px;
+  border: 1px solid slategray;
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.5;
+filter: alpha(opacity=50);
+  // position: relative;
+}

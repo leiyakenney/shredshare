@@ -47,16 +47,19 @@
     <% end %>
   </p>
   <br>
-  <strong>User Reviews:</strong><br>
+  <h4>User Reviews:</h4>
 
   <% if @user.reviews != []%>
+  Average User Rating: <%= @user.avg_rtg.round(2) %>/5
     <section class = "reviews">
       <% @user.reviews.each do |review| %>
-        Title: <%= review.title %>
-        Review: <%= review.content %>
+      <div class='review-card'>
+        <u> <%= review.title %></u><br>
+         <%= review.content %><br>
         User Rating: <%= review.rating %>/5
+      </div>
       <% end %>
-      Average User Rating: <%= @user.avg_rtg.round(2) %>/5
+      <br>
     </section>
   <% else %>
     This user doesn't have any reviews yet <br>
