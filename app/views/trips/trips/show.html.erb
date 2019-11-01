@@ -6,4 +6,4 @@
 <%= @trip.rtd_location.name %>
 
 <%= link_to "Flake (Cancel This Trip)", trip_destroy_path(@trip), method: :delete %>
-<%= link_to "Change Up (Edit This Trip)", edit_trip_path(@trip), method: :get %>
+<%= link_to "Change Up (Edit This Trip)", trip_edit_path(@trip) %>

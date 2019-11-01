@@ -31,7 +31,6 @@ class Trips::TripsController < ApplicationController
   end
 
   def edit
-    binding.pry
     @user = current_user
     @trip = Trip.find(params[:id])
   end
@@ -41,8 +40,23 @@ class Trips::TripsController < ApplicationController
   # their participation from the email.
   def update
     @user = current_user
-    @trip = Trip.find(params[:id])
-    @trip.update(trip_update_params)
+    @trip = Trip.find(params[:format])
+    rtu = params[:ride_type]
+    rtdlu = params[:rtd_location_id]
+    sau = params[:seats_available]
+    dpu = params[:destination_point]
+    if rtu.length > 2
+      @trip.update(ride_type: rtu)
+    end
+    if rtdlu > 0
+      @trip.update(rtd_location_id: rtdlu)
+    end
+    if sau != nil || ""
+      @trip.update(seats_available: sau)
+    end
+    if dpu.lenght > 2
+      @trip.update(destination_point: dpu)
+    end
     redirect_to trip_show_path(@trip)
   end
 
@@ -53,12 +67,6 @@ class Trips::TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.destroy
     redirect_to root_path
-  end
-
-  private
-
-  def trip_update_params
-    params.permit(:ride_type, :rtd_location_id, :seats_available, :destination_point)
   end
 
 end
