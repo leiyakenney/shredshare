@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
   def set_user
     @user = current_user
   end
-  
+
   private
 
   def user_params
