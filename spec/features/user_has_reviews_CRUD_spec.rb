@@ -22,7 +22,6 @@ describe "user reviews" do
               password: "password",
               password_confirmation: "password")
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
