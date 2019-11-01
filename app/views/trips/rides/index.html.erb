@@ -6,7 +6,7 @@
     <%= ride.trip.rtd_location.name %>
     <%= ride.trip.destination_point %>
 
-    <%= link_to "Drop Out! (Cancel This Ride)" %>
+    <%= link_to "Drop Out! (Cancel This Ride)", delete_ride_path(ride: ride), method: :delete %>
   </section>
 
 <% end %>
