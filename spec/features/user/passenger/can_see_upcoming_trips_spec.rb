@@ -36,7 +36,28 @@ RSpec.describe "Trips Available To Join" do
       visit ('/trip_dashboard')
       click_on "Looking To Put My Junk In Your Trunk"
       expect(current_path).to eq('/trip_dashboard/passneger/index')
-      
+
+      expect(page).to have_css("#trip-#{@trip1.id}")
+      expect(page).to have_css("#trip-#{@trip2.id}")
+
+      within "#trip-#{@trip1.id}" do
+        expect(page).to have_content(@trip1.rtd_location.name)
+        expect(page).to have_content(@trip1.destination_point)
+        expect(page).to have_content(@trip1.seats_available)
+        expect(page).to have_content(@trip1.ride_type)
+        expect(page).to have_content(@trip1.date_of_departure)
+        expect(page).to have_link("Catch This Lift")
+      end
+
+      within "#trip-#{@trip2.id}" do
+        expect(page).to have_content(@trip2.rtd_location.name)
+        expect(page).to have_content(@trip2.destination_point)
+        expect(page).to have_content(@trip2.seats_available)
+        expect(page).to have_content(@trip2.ride_type)
+        expect(page).to have_content(@trip2.date_of_departure)
+        expect(page).to have_link("Catch This Lift")
+      end
+
     end
   end
 end
