@@ -38,7 +38,7 @@ class VehiclesController < ApplicationController
   def destroy
     vehicle = Vehicle.find(params[:id])
     if vehicle.destroy && (current_user.vehicles.count == 0)
-      redirect_to profile_path, notice: 'Vehicle was removed.'
+      redirect_to "/users/#{current_user.id}", notice: 'Vehicle was removed.'
     elsif vehicle.destroy && (current_user.vehicles.count >= 1)
       redirect_to user_vehicles_path(current_user.id), notice: 'Vehicle was removed.'
     else
