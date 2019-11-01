@@ -4,5 +4,4 @@ class Trips::PassengerController < ApplicationController
     @trips = Trip.where("seats_available > 0")
   end
 
-
 end
