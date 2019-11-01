@@ -1,0 +1,16 @@
+<h1>Change It Up</h1>
+
+<%= form_tag(trip_update_path(@trip), method: "patch") do %>
+  <p>Trip Details</p><%= select_tag(:ride_type, options_for_select(trip_list), {class: "trip-field"}) %>
+
+  <p>Strating Station</p><%= select_tag(:rtd_location_id, options_for_select(rtd_location_list), {class: "rtd-field"}) %>
+  <p>Seats Available</p><%= select_tag(:seats_available, options_for_select(seats_list), {class: "seat-field"}) %>
+  <p>Destination</p><%= select_tag(:destination_point, options_for_select(destination_list), {class: "destination-field"}) %>
+
+  <p>Date of Departure</p>
+  <p>Day</p><%= select_tag(:day_of_trip, options_for_select(dates_list), {class: "date-field"}) %>
+  <p>Month</p><%= select_tag(:month_of_trip, options_for_select(month_list), {class: "month-field"}) %>
+  <p>Year</p><%= select_tag(:year_of_trip, options_for_select(year_list), {class: "year-field"}) %>
+
+  <%= submit_tag('SEND IT', class: "button") %>
+<% end %>

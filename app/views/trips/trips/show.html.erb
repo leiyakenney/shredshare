@@ -1,0 +1,9 @@
+<h1>Ready To Shred</h1>
+<%= @trip.date_of_departure %>
+<%= @trip.ride_type %>
+<%= @trip.destination_point %>
+<p><%= @trip.vehicle.make %> <%= @trip.vehicle.model %></p>
+<%= @trip.rtd_location.name %>
+
+<%= link_to "Flake (Cancel This Trip)", trip_destroy_path(@trip), method: :delete %>
+<%= link_to "Change Up (Edit This Trip)", edit_trip_path(@trip), method: :get %>
