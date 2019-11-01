@@ -17,5 +17,13 @@ class Trips::RidesController < ApplicationController
     end
   end
 
+  def destroy
+    ride = Ride.find(params[:ride])
+    trip = ride.trip
+    x = trip.seats_available + 1
+    trip.update(seats_available: x)
+    ride.destroy
+  end
+
 
 end
