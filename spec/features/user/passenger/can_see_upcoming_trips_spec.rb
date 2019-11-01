@@ -71,8 +71,12 @@ RSpec.describe "Trips Available To Join" do
           expect(page).to have_content(@trip2.date_of_departure)
           expect(page).to have_content(@trip2.rtd_location.name)
           expect(page).to have_content(@trip2.destination_point)
+          expect(page).to have_link("Drop Out! (Cancel This Ride)")
+
+          click_link "Drop Out! (Cancel This Ride)"
         end
-        
+        expect(current_path).to eq(my_rides_path)
+        expect(page).to_not have_content(@trip2.ride_type)
     end
   end
 end
