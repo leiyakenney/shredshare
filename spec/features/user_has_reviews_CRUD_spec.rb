@@ -52,26 +52,27 @@ describe "user reviews" do
     expect(@user.avg_rtg).to eq(3.5)
     expect(page).to have_content("Average User Rating: #{@user.avg_rtg}/5")
   end
-
+  # 
   # it "users can update reviews they've given to other riders" do
   #   # @user rides with @user_2 on a trip
-  #   within "#lift-buddy-#{@user_2.id}" do
-  #     click_button("Review Me!")
+  #   visit ("/users/#{@user_2.id}")
+  #     click_link("Review Me!")
   #
   #     fill_in "Title", with: "I don't like titles"
   #     fill_in "Content", with: "Jerralina was cool."
-  #     fill_in "Rating", with: 4
+  #     select(4, from: "Rating").select_option
+  #
+  #
   #
   #     click_button "Send It!"
   #
   #     @last_review = Review.last
-  #   end
   #
-  #   visit profile_path(@user_2)
   #
-  #   within "#review-#{@last_review.id}" do
-  #     click_button "Edit"
-  #   end
+  #   visit "/users/#{@user_2.id}"
+  #   save_and_open_page
+  #     click_on "Edit Review"
+  #
   #
   #   expect(current_path).to eq(edit_user_review_path(@user_2))
   #   expect(page).to have_content("I don't like titles")
@@ -88,8 +89,8 @@ describe "user reviews" do
   #     expect(page).to have_content("Good lift buddy")
   #   end
   # end
-  #
-  # it "users can delete reviews they've given to other riders" do
+
+#   # it "users can delete reviews they've given to other riders" do
   #   # @user rides with @user_2 on a trip
   #   # maybe create another review made by a user_3 to account for edge case?
   #   within "#lift-buddy-#{@user_2.id}" do
