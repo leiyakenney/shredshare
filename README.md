@@ -1,24 +1,39 @@
-# README
+# Shred Share
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Shred Share is a Ride Share app built to increase community engagement, help cut carbon emissions, and reduce traffic to and from the mountains. We hope you will consider using Shred Share on your next trip to the mountains and make some new friends along the way!
 
-Things you may want to cover:
+Shred Share is brought to you by:
+- [Leiya Kenney](https://alumni.turing.io/alumni/leiya-kenney)
+- [Nathan Thomas](https://alumni.turing.io/alumni/nathan-thomas)
+- [Smitha Hosmani](https://alumni.turing.io/alumni/smitha-hosmani)
+- [Kelly Sandeson](https://alumni.turing.io/alumni/kelly-sandeson)
 
-* Ruby version
+Check out the Shred Share Repo [HERE](https://github.com/leiyakenney/shredshare)
 
-* System dependencies
+Interact with Shred Share on Heroku [HERE](https://shred-share.herokuapp.com)
 
-* Configuration
+## Built Using
+- Rails
+- Ruby
+- Google API
+- PostgreSQL database
+- Sinatra mico-service
 
-* Database creation
+Check out the Sinatra micro-service repo [HERE](https://github.com/nathangthomas/shredshare_microservice)
 
-* Database initialization
+## Run Shred Share on your local machine
+1. `$ git clone git@github.com:leiyakenney/shredshare.git`
+2. `$ bundle`
+3. `$ bundle exec figaro install` (Add your google_client_id and google_client_secret to ./config/application.yml for google OAuth)
 
-* How to run the test suite
+```GOOGLE_CLIENT_ID: "<your Google Client ID>"```
 
-* Services (job queues, cache servers, search engines, etc.)
+```GOOGLE_CLIENT_SECRET: "<your Google Client Secret>"```
 
-* Deployment instructions
+4. `$ bundle exec rspec install`
+5. `$ rails db:{create,migrate}`
+6. `$ rake import:rtd`
+7. You can run test suite with `$ bundle exec rspec`
+8. Start a local server with `$ rails s` and access Shred Share in your browser at localhost:3000
 
-* ...
+<img width="1215" alt="shred_share_schema" src="https://user-images.githubusercontent.com/47466067/68024100-c00a1880-fc6e-11e9-8610-e387c5d57052.png">

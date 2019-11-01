@@ -47,21 +47,24 @@
     <% end %>
   </p>
   <br>
-  <strong>User Reviews:</strong><br>
+  <h4>User Reviews:</h4>
 
   <% if @user.reviews != []%>
+  Average User Rating: <%= @user.avg_rtg.round(2) %>/5
     <section class = "reviews">
       <% @user.reviews.each do |review| %>
-        Title: <%= review.title %>
-        Review: <%= review.content %>
+      <div class='review-card'>
+        <u> <%= review.title %></u><br>
+         <%= review.content %><br>
         User Rating: <%= review.rating %>/5
+      </div>
       <% end %>
-      Average User Rating: <%= @user.avg_rtg %>/5
+      <br>
     </section>
   <% else %>
     This user doesn't have any reviews yet <br>
   <% end %>
-  <br><br>
-  <%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
-  <%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>
-</div>
+
+<%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
+<%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %> |
+<%= link_to 'Review Me!', new_user_review_path(@user.id) %>

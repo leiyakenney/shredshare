@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "as a user" do
   it "I can sign up and become a registered user" do
-
+ 
     user_name = "jerry_of_the_day"
     first_name = "Jerry"
     last_name = "Jones"

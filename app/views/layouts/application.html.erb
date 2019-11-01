@@ -41,7 +41,8 @@
 
             <% if user_signed_in? %>
             <li><strong><i class="fas fa-user"></i>
-              <%= link_to "Profile", profile_path %></strong></li>
+
+              <%= link_to "Profile", "/users/#{current_user.id}" %></strong></li>
 
           <li><strong><i class="fas fa-car-side"></i>
             <%= link_to "My Rides", "#"%></strong></li>
