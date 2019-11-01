@@ -21,6 +21,14 @@
  */
 
  /* ____________________________________ */
+.about{
+  padding-top: 20px;
+  color: slategray;
+  height: 700px;
+  width: 445px;
+  display: inline-block;
+}
+
 .field{
   padding: 10px;
 }
@@ -192,7 +200,7 @@ a:hover
 
   /* adjust padding-bottom to control lenght of menu */
 
-  background-image: url("https://pccats.com/wp-content/uploads/2017/11/A83B6593-600x600.jpg");
+  // background-image: url("https://pccats.com/wp-content/uploads/2017/11/A83B6593-600x600.jpg");
 
   /* background: #ededed; */
   list-style-type: none;
@@ -226,8 +234,18 @@ a:hover
   padding: 20px 55px 20px;
 }
 
+.user-show-nav{
+  // background-color: red;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 55px 20px;
+}
+
 .fs-pencil-alt{
-  position: relative;
+  // position: relative;
+  // display: inline-block;
+  text-align: right;
 }
 
 .user-name{
