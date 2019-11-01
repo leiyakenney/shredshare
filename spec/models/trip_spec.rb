@@ -8,7 +8,6 @@ RSpec.describe Trip, type: :model do
     it { should validate_presence_of(:rtd_location_id) }
     it { should validate_presence_of(:destination_point) }
     it { should validate_presence_of(:seats_available) }
-    it { should validate_presence_of(:date_of_departure) }
   end
 
   describe 'relationships' do
