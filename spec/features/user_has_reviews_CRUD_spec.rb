@@ -26,7 +26,7 @@ describe "user reviews" do
   end
 
   it "users have a list of reviews" do
-    visit profile_path(@user)
+    visit ("/users/#{@user.id}")
 
     expect(page).to_not have_content("Average User Rating: #{@user.avg_rtg}/5")
     expect(page).to have_content("This user doesn't have any reviews yet")
@@ -34,7 +34,7 @@ describe "user reviews" do
     review_1 = @user.reviews.create!(title: "Full send brah", content: "Jerry's rad.", rating: 5)
     review_2 = @user.reviews.create!(title: "Crazy driver", content: "Jerry goes full send on the roads. Scary.", rating: 2)
 
-    visit profile_path(@user)
+    visit ("/users/#{@user.id}")
 
     expect(page).to have_content("User Reviews")
     expect(page).to have_css(".reviews")
