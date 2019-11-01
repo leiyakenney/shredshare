@@ -23,6 +23,7 @@ class Trips::RidesController < ApplicationController
     x = trip.seats_available + 1
     trip.update(seats_available: x)
     ride.destroy
+    redirect_to my_rides_path
   end
 
 
