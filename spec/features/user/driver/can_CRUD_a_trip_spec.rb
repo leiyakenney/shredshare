@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "A driver can create a trip" do
+RSpec.describe "A driver can CRUD trips" do
   describe "Putting cheeks in your seats" do
     before :each do
       @current_user = User.create!(user_name: "jerry_of_the_day",
@@ -11,6 +11,12 @@ RSpec.describe "A driver can create a trip" do
                                   bio: "Just got to send it bro!",
                                   sport_type: "ski",
                                   email: "jerry@email.com")
+
+      @rtd1 = RtdLocation.create!(area: "Denver,CO", name: "RTD Park-N-Ride I-25 & Broadway Station", address: "901 S Broadway, Denver, CO 80223, USA", latitude: nil, longitude: nil, place_id: nil)
+      @rtd2 = RtdLocation.create!(area: "Denver,CO", name: "Colorado Station RTD Park and Ride Lot", address: "4401 E Evans Ave, Denver, CO 80222, USA", latitude: nil, longitude: nil, place_id: nil)
+
+      @current_user.vehicles.create!(make: "Toyota", model: "Highlander", year: "2010", awd: true, storage_rack: false, total_seats: 5, image: "")
+
     end
 
     it "As a logged in user, when I visit '/trip_dashboard' and I click on
@@ -39,6 +45,32 @@ RSpec.describe "A driver can create a trip" do
       expect(page).to have_content("Date of Departure")
       expect(page).to have_content("Destination")
       expect(page).to have_button("SEND IT")
+
+      select "One Way", from: :ride_type
+      select "2", from: :seats_available
+      select "Keystone", from: :destination_point
+      select "Toyota Highlander", from: :vehicle_id
+      select "RTD Park-N-Ride I-25 & Broadway Station", from: :rtd_location_id
+      select "01", from: :day_of_trip
+      select "Nov", from: :month_of_trip
+      select "2019", from: :year_of_trip
+      click_on "SEND IT"
+
+      trip = Trip.last
+
+      expect(current_path).to eq(trip_show_path(trip.id))
+      expect(page).to have_content("Ready To Shred")
+      expect(page).to have_content(trip.date_of_departure)
+      expect(page).to have_content(trip.ride_type)
+      expect(page).to have_content(trip.destination_point)
+      expect(page).to have_content("Toyota Highlander")
+      expect(page).to have_content(trip.rtd_location.name)
+      expect(page).to have_link("Change Up (Edit This Trip)")
+      expect(page).to have_link("Flake (Cancel This Trip)")
+
+      click_link "Change Up (Edit This Trip)"
+      binding.pry
+      expect(current_path).to eq(trip_edit_path(trip.id))
     end
   end
 end
