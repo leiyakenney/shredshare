@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= form.label :rating %>
-    <%= form.number_field :rating, required: true %>
+    <%= form.select :rating, (1..5) %>
   </div>
 
   <div class="field">
