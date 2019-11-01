@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   get "/trip_dashboard/passneger/index", to: "trips/passenger#index", as: :trip_index
 
   post '/rides/create', to: "trips/rides#create", as: :ride_create
-
   get '/my_rides', to: "trips/rides#index", as: :my_rides
+  delete '/my_rides', to: "trips/rides#destroy", as: :delete_ride
 
 
 end
