@@ -1,11 +1,16 @@
+<div class='ride-buttons'>
 
-<section class='need_ride_button'>
-  <%= link_to "Looking To Put My Junk In Your Trunk", trip_index_path %><br>
-  <p>Need A Ride</p>
-</section>
+  <section class='need_ride_button'>
+    <strong><%= link_to "Need A Ride", trip_filter_path %></strong><br>
+    <p>(Looking To Put My Junk In Your Trunk)</p>
+  </section>
 
+  <br>
+  <br>
 
-<section class='give_ride_button'>
-  <%= link_to "I Need Cheeks In My Seats", trip_creation_path %><br>
-  <p>Give A Ride</p>
-</section>
+  <section class='give_ride_button'>
+    <strong><%= link_to "Give A Ride", trip_creation_path %></strong><br>
+    <p>(I Need Cheeks In My Seats)</p>
+  </section>
+
+  </div>

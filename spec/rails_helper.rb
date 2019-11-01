@@ -1,7 +1,12 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/app/models/user.rb"
+  add_filter "app/controllers/users_controller.rb"
+  add_filter "app/controllers/users/registrations_controller.rb"
+  add_filter "app/uploaders/picture_uploader.rb"
+end
 
 ENV['RAILS_ENV'] ||= 'test'
 
