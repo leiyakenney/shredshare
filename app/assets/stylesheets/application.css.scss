@@ -21,6 +21,14 @@
  */
 
  /* ____________________________________ */
+.about{
+  padding-top: 20px;
+  color: dodgerblue;
+  height: 700px;
+  width: 445px;
+  display: inline-block;
+}
+
 .field{
   padding: 10px;
 }
@@ -226,8 +234,18 @@ a:hover
   padding: 20px 55px 20px;
 }
 
+.user-show-nav{
+  // background-color: red;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 55px 20px;
+}
+
 .fs-pencil-alt{
-  position: relative;
+  // position: relative;
+  // display: inline-block;
+  text-align: right;
 }
 
 .user-name{

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks" }
 
   root to: 'welcome#index'
+  get '/about', to: 'welcome#show'
 
   resources :users do
     resources :vehicles
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :trips do
     resources :lift_buddies, only: [:index]
-  end 
+  end
 
   get '/trip_dashboard', to: "trips/buttons#index"
 
