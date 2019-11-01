@@ -56,7 +56,7 @@
         Review: <%= review.content %>
         User Rating: <%= review.rating %>/5
       <% end %>
-      Average User Rating: <%= @user.avg_rtg %>/5
+      Average User Rating: <%= @user.avg_rtg.round(2) %>/5
     </section>
   <% else %>
     This user doesn't have any reviews yet <br>
