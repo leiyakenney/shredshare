@@ -56,8 +56,23 @@ RSpec.describe "Trips Available To Join" do
         expect(page).to have_content(@trip2.ride_type)
         expect(page).to have_content(@trip2.date_of_departure)
         expect(page).to have_link("Catch This Lift")
+
+        click_on "Catch This Lift"
       end
 
+      ride = Ride.last
+
+        expect(current_path).to eq("/my_rides")
+        expect(page).to have_content("My Rides")
+        expect(page).to have_css("#ride-#{ride.id}")
+
+        within "#ride-#{ride.id}" do
+          expect(page).to have_content(@trip2.ride_type)
+          expect(page).to have_content(@trip2.date_of_departure)
+          expect(page).to have_content(@trip2.rtd_location.name)
+          expect(page).to have_content(@trip2.destination_point)
+        end
+        
     end
   end
 end
