@@ -1,0 +1,14 @@
+
+
+<% @trips.each do |trip| %>
+
+  <section id="trip-<%= trip.id %>">
+    <%= trip.rtd_location.name %>
+    <%= trip.destination_point %>
+    <%= trip.seats_available %>
+    <%= trip.ride_type %>
+    <%= trip.date_of_departure %>
+    <%= link_to "Catch This Lift", ride_create, method: :get %>
+  </section>
+
+<% end %>
