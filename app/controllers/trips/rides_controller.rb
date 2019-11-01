@@ -1,5 +1,9 @@
 class Trips::RidesController < ApplicationController
 
+  def index
+    @rides = current_user.rides
+  end
+
   def create
     trip = Trip.find(params[:trip])
     user = current_user
