@@ -68,9 +68,10 @@ class Trips::TripsController < ApplicationController
   # A future ice box idea would be to send an email letting passengers
   # know the trip has been canceled and the driver who created the trip
   # could lose reputaiton points on their review score for being flaky.
+
   def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
+    trip = Trip.find(params[:id])
+    trip.destroy
     redirect_to root_path
   end
 

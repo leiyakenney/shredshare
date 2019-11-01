@@ -76,5 +76,34 @@ RSpec.describe "A driver can CRUD trips" do
 
       # expect(trip.seats_available).to eq(4)
     end
+    it "can delete a trip" do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@current_user)
+
+      visit ('/trip_dashboard')
+      click_on "I Need Cheeks In My Seats"
+
+      expect(current_path).to eq('/trip_dashboard/drivers/new')
+      expect(page).to have_css('.trip_creation_form')
+      expect(page).to have_content("Trip Details")
+      expect(page).to have_content("Seats Available")
+      expect(page).to have_content("Date of Departure")
+      expect(page).to have_content("Destination")
+      expect(page).to have_button("SEND IT")
+
+      select "One Way", from: :ride_type
+      select "2", from: :seats_available
+      select "Keystone", from: :destination_point
+      select "Toyota Highlander", from: :vehicle_id
+      select "RTD Park-N-Ride I-25 & Broadway Station", from: :rtd_location_id
+      select "01", from: :day_of_trip
+      select "Nov", from: :month_of_trip
+      select "2019", from: :year_of_trip
+      click_on "SEND IT"
+
+      trip = Trip.last
+
+      click_link "Flake (Cancel This Trip)"
+      expect(current_path).to eq(root_path)
+    end
   end
 end
