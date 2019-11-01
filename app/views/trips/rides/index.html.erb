@@ -1,0 +1,12 @@
+<% @rides.each do |ride| %>
+
+  <section id="ride-<%= ride.id %>">
+    <%= ride.trip.ride_type %>
+    <%= ride.trip.date_of_departure %>
+    <%= ride.trip.rtd_location.name %>
+    <%= ride.trip.destination_point %>
+
+    <%= link_to "Drop Out! (Cancel This Ride)", delete_ride_path(ride: ride), method: :delete %>
+  </section>
+
+<% end %>

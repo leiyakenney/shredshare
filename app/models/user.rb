@@ -1,19 +1,26 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
+  #Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2
-         ]
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
   mount_uploader :picture, PictureUploader
-
   has_many :vehicles
   has_many :reviews, :dependent => :destroy
+  has_many :trips
+  has_many :rides
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   validates_presence_of :user_name, :first_name, :last_name, :email
   validates_uniqueness_of :user_name
 
   def avg_rtg
     reviews.average(:rating)
+  end
+
+  def has_vehicles?
+    vehicles.any?
   end
 
   def self.from_omniauth(auth)

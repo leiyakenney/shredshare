@@ -18,9 +18,18 @@ Rails.application.routes.draw do
 
   get '/trip_dashboard', to: "trips/buttons#index"
 
-  get '/trip_filter', to: "trips/filter#new"
-  post '/trips', to: "trips/filter#create", as: :trip_filter_creation
-
   get '/trip_dashboard/drivers/new', to: "trips/trips#new", as: :trip_creation
+  post '/trip_dashboard/drivers/create', to: "trips/trips#create", as: :trip_create
+  get '/trip_dashboard/:id', to: "trips/trips#show", as: :trip_show
+  get '/trip_dashboard/edit/:id', to: "trips/trips#edit", as: :trip_edit
+  patch '/trip_dashboard/update', to: "trips/trips#update", as: :trip_update
+  delete '/trip_dashboard/:id', to: "trips/trips#destroy", as: :trip_destroy
+
+  get "/trip_dashboard/passneger/index", to: "trips/passenger#index", as: :trip_index
+
+  post '/rides/create', to: "trips/rides#create", as: :ride_create
+  get '/my_rides', to: "trips/rides#index", as: :my_rides
+  delete '/my_rides', to: "trips/rides#destroy", as: :delete_ride
+
 
 end

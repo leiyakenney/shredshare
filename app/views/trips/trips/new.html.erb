@@ -1,14 +1,21 @@
 <section class='trip_creation_form'>
   <h1>Create A New Trip</h1>
-  <%= form_tag(trip_filter_creation_path, method: "get") do %>
+  <%= form_tag(trip_create_path, method: "post") do %>
     <p>Trip Details</p><%= select_tag(:ride_type, options_for_select(trip_list), {class: "trip-field"}) %>
+    <p>Vehicle</p>
+    <% if @current_user.has_vehicles? %>
+      <%= select_tag(:vehicle_id, options_for_select(vehicle_list), {class: "vehicle-field"}) %>
+    <% else %>
+      <%= link_to "Add a vehicle", new_user_vehicle_path(@current_user.id) %>
+    <% end %>
+    <p>Strating Station</p><%= select_tag(:rtd_location_id, options_for_select(rtd_location_list), {class: "rtd-field"}) %>
     <p>Seats Available</p><%= select_tag(:seats_available, options_for_select(seats_list), {class: "seat-field"}) %>
-    <p>Destination</p><%= select_tag(:destination, options_for_select(destination_list), {class: "destination-field"}) %>
+    <p>Destination</p><%= select_tag(:destination_point, options_for_select(destination_list), {class: "destination-field"}) %>
 
     <p>Date of Departure</p>
-    <%= select_tag(:departure_day, options_for_select(dates_list), {class: "date-field"}) %>
-    <%= select_tag(:departure_month, options_for_select(month_list), {class: "month-field"}) %>
-    <%= select_tag(:departure_year, options_for_select(year_list), {class: "year-field"}) %>
+    <p>Day</p><%= select_tag(:day_of_trip, options_for_select(dates_list), {class: "date-field"}) %>
+    <p>Month</p><%= select_tag(:month_of_trip, options_for_select(month_list), {class: "month-field"}) %>
+    <p>Year</p><%= select_tag(:year_of_trip, options_for_select(year_list), {class: "year-field"}) %>
 
     <%= submit_tag('SEND IT', class: "button") %>
   <% end %>

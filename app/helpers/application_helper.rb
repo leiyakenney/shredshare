@@ -10,6 +10,22 @@ module ApplicationHelper
     ]
   end
 
+  def rtd_location_list
+    x = RtdLocation.all.map do |rtd|
+      rtd.name
+    end
+    y = x.unshift(' ')
+    y.each_slice(1).to_a
+  end
+
+  def vehicle_list
+    if current_user.has_vehicles?
+      current_user.vehicles.map do |vehicle|
+        "#{vehicle.make} #{vehicle.model}"
+      end.unshift(' ').each_slice(1).to_a
+    end
+  end
+
   def trip_list
     [
       [' '],
@@ -121,6 +137,52 @@ module ApplicationHelper
   def destination_list
     [
       [' '],
+      ["Wolf Creek"],
+      ["Mary Jane"],
+      ["Sunlight"],
+      ["Steamboat"],
+      ["Snowmass"],
+      ["Ski Granby Ranch"],
+      ["Ski Cooper"],
+      ["Silverton Mountain"],
+      ["Purgatory Resort"],
+      ["Powderhorn Resort"],
+      ["Monarch Mountain"],
+      ["Loveland Valley"],
+      ["Loveland Basin"],
+      ["Lee's Hill"],
+      ["Lake City Ski Hill"],
+      ["Kendall Mountain"],
+      ["Howelsen Hill"],
+      ["Hesperus Ski Area"],
+      ["Echo Mountain Park"],
+      ["Crested Butte"],
+      ["Cranor Ski Area"],
+      ["Snowbird"],
+      ["Alta"],
+      ["Brighton"],
+      ["Deer Valley"],
+      ["Taos Ski Valley"],
+      ["Big Sky"],
+      ["Jackson Hole"],
+      ["Eldora"],
+      ["Winter Park"],
+      ["Copper Mountain"],
+      ["Chapman Hill Ski Area"],
+      ["Buttermilk"],
+      ["Telluride"],
+      ["Bevern Creek"],
+      ["Park City"],
+      ["Vail"],
+      ["Snowbasin"],
+      ["Sun Valley"],
+      ["Beaver Creek"],
+      ["Crested Butte"],
+      ["Breckenridge"],
+      ["Aspen Mountain"],
+      ["Aspen Highlands"],
+      ["Snowmass"],
+      ["Arapahoe Basin"],
       ['Keystone']
     ]
   end
