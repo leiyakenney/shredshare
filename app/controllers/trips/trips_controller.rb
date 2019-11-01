@@ -48,16 +48,21 @@ class Trips::TripsController < ApplicationController
     if rtu.length > 2
       @trip.update(ride_type: rtu)
     end
-    if rtdlu > 0
+    if rtdlu != 0 || nil
       @trip.update(rtd_location_id: rtdlu)
     end
-    if sau != nil || ""
+    if sau != nil || " "
       @trip.update(seats_available: sau)
     end
-    if dpu.lenght > 2
+    if dpu.length > 2
       @trip.update(destination_point: dpu)
     end
-    redirect_to trip_show_path(@trip)
+    if @trip.save
+      redirect_to trip_show_path(@trip)
+    else
+      @trip = @trip
+      render :edit
+    end
   end
 
   # A future ice box idea would be to send an email letting passengers

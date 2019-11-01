@@ -71,9 +71,10 @@ RSpec.describe "A driver can CRUD trips" do
       click_link "Change Up (Edit This Trip)"
       expect(current_path).to eq(trip_edit_path(trip.id))
 
-      select "5", from: :seats_available
+      select "4", from: :seats_available
       click_on "SEND IT"
-      
+
+      # expect(trip.seats_available).to eq(4)
     end
   end
 end
