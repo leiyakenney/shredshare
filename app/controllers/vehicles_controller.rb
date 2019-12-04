@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
 
   def index
-    @vehicles = Vehicle.all
+    current_user.vehicles.count >= 1
   end
 
   def show

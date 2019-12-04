@@ -1,10 +1,11 @@
 
 <h1>My Vehicles</h1>
-<h3><%= "Total Vehicles: #{@vehicles.count}" %></h3>
+
+<h3><%= "Total Vehicles: #{current_user.vehicles.count}" %></h3>
 <%= link_to 'Add A Vehicle', new_user_vehicle_path(current_user.id) %>
 <br>
 <br>
-<% @vehicles.each do |vehicle|%>
+<% current_user.vehicles.each do |vehicle|%>
 <div class='vehicle'>
   <div class='car-icon'>
     <% if vehicle.image == nil %>

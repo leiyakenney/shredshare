@@ -1,0 +1,25 @@
+<h2>Edit Your Review For <%= "#{@user.first_name} #{@user.last_name}" %>?</h2>
+
+
+<%= form_with model: [:user, @review], local: true do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.select :rating, (1..5) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content,  required: true %>
+  </div>
+  <% form.hidden_field :user, :value => @user %>
+
+  <div class="actions">
+    <%= form.submit "Send It!", method: :patch %>
+  </div>
+<% end %>

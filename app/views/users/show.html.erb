@@ -1,8 +1,14 @@
- <nav class="nav-bar">
-  <div class="fs-pencil-alt">
-    <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(@user)%></p>
-  </div>
-</nav>
+
+<html>
+<body>
+<!-- <nav role='navigation'> -->
+  <div class="nav-bar">
+    <div id='menuToggle'
+      <div class="fs-pencil-alt">
+        <p class="fas fa-pencil-alt"><%= link_to '  edit', edit_user_path(@user)%></p>
+      </div>
+    </div>
+  <!-- </div> -->
 
 <div class="container">
   <div class='image-circle-show'>
@@ -17,9 +23,7 @@
     <br>
     <br>
 
-  <p>
     <h1 class="user-name"><strong><%= @user.user_name %></strong></h1>
-  </p>
 
   <p>
     <strong>Name:</strong> <br>
@@ -64,8 +68,11 @@
     This user doesn't have any reviews yet <br>
   <% end %>
   <%=  link_to 'Edit Review', edit_user_review_path(@user.id) %>
-</section>
+</section> |
 
 <%= link_to 'Edit Profile', edit_user_path(@user.id) %> |
-<%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %> |
+<%= link_to 'Add A Vehicle', new_user_vehicle_path(@user.id) %>|
 <%= link_to 'Review Me!', new_user_review_path(@user.id) %>
+
+</body>
+</html>

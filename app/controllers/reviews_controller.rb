@@ -17,11 +17,16 @@ class ReviewsController<ApplicationController
       redirect_to new_user_review_path(@user), alert: "Please fill in all fields in order to create a review."
     end
 
+    def edit
+# binding.pry
+      @review = @user.reviews.find_by(params[:user_id])
+    end
+
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :rating)
+    params.require(:review).permit(:title, :content, :rating, :id, :user_id)
   end
 end

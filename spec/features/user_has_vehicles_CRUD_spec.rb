@@ -31,8 +31,9 @@ describe "A user visits show page: " do
     click_on "Add Vehicle"
 
     expect(current_path).to eq(user_vehicles_path(@user.id))
+    # binding.pry
 
-    # expect(page).to have_content('Total Vehicles: 1')
+    expect(page).to have_content('Total Vehicles: 1')
 
     expect(page).to have_content("2001 Toyota Tacoma")
     within(first('.vehicle')) do
